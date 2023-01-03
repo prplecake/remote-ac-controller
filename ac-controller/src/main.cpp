@@ -23,14 +23,10 @@ void setup( )
 }
 
 void translateIR() // takes action based on IR code received
-
-// describing Remote IR codes
-
 {
-
     switch(results.value)
-
     {
+        // describing Remote IR codes
         case 0xFFFFFFFF: Serial.println(" REPEAT");break;
         case 0x10AF8877: Serial.println("POWER"); break;
         case 0x10AF708F: Serial.println("TEMP/TIMER UP"); break;
@@ -89,11 +85,11 @@ void loop( )
     float temperature;
     float humidity;
 
-    /* Measure temperature and humidity.  If the functions returns
+    /* Measure temperature and humidity.  If the function returns
        true, then a measurement is available. */
-    if( measure_environment( &temperature, &humidity ) == true )
+    if(measure_environment(&temperature, &humidity))
     {
-        float temp_f = temperature * 1.8000 + 32.00;
+        float temp_f = temperature * 1.8000f + 32.00f;
         Serial.print( "T = " );
         Serial.print( temp_f, 2 );
         Serial.print( " deg. F, H = " );
