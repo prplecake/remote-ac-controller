@@ -10,7 +10,7 @@ class IndexView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data()
         (temp_c, humidity, dht_error) = get_dht_data()
-        obj = DhtSensorData.objects.order_by('-date')[:10]
+        obj = DhtSensorData.objects.order_by('-date')[:20]
         context['temp_c'] = temp_c
         context['temp_f'] = convert_to_fahrenheit(temp_c)
         context['humidity'] = humidity
