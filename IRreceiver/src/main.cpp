@@ -1,22 +1,19 @@
 #include <Arduino.h>
-#include "../lib/DHT/dht_nonblocking.h"
 #include "../lib/IRremote/IRremote.h"
 
 #define DHT_SENSOR_TYPE DHT_TYPE_11
 
 // Initialize pins
-static const int DHT_SENSOR_PIN = 2;
-static const int IR_RECEIVER_PIN = 11;
+static const int IR_RECEIVER_PIN = 3;
 
 // Declare objects
-DHT_nonblocking dht_sensor( DHT_SENSOR_PIN, DHT_SENSOR_TYPE );
 IRrecv irrecv(IR_RECEIVER_PIN);
 decode_results results;
 
 /*
  * Initialize the serial port.
  */
-void setup( )
+__attribute__((unused)) void setup( )
 {
     Serial.begin( 9600);
     irrecv.enableIRIn();
@@ -54,48 +51,12 @@ void translateIR() // takes action based on IR code received
 
 } //END translateIR
 
-/*
- * Poll for a measurement, keeping the state machine alive.  Returns
- * true if a measurement is available.
- */
-static bool measure_environment( float *temperature, float *humidity )
-{
-    static unsigned long measurement_timestamp = millis( );
-
-    /* Measure once every four seconds. */
-    if( millis( ) - measurement_timestamp > 3000ul )
-    {
-        if(dht_sensor.measure(temperature, humidity))
-        {
-            measurement_timestamp = millis( );
-            return( true );
-        }
-    }
-
-    return( false );
-}
-
-
 
 /*
  * Main program loop.
  */
-void loop( )
+__attribute__((unused)) void loop( )
 {
-    float temperature;
-    float humidity;
-
-    /* Measure temperature and humidity.  If the function returns
-       true, then a measurement is available. */
-    if(measure_environment(&temperature, &humidity))
-    {
-        float temp_f = temperature * 1.8000f + 32.00f;
-        Serial.print( "T = " );
-        Serial.print( temp_f, 2 );
-        Serial.print( " deg. F, H = " );
-        Serial.print( humidity, 2 );
-        Serial.println( "%" );
-    }
 
     if (irrecv.decode(&results)) // have we received an IR signal?
 
