@@ -1,11 +1,9 @@
-from remote_web.models import DhtSensorData
-from rest_framework import permissions, viewsets
+from rest_framework import viewsets
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
+from remote_web.models import DhtSensorData
 from .serializers import DhtSensorDataSerializer
-
-from services.dht import get_dht_data
 
 
 class DhtSensorDataViewSet(viewsets.ModelViewSet):
