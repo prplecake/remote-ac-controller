@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     <meta http-equiv="refresh" content="60">
+    <title>webremote</title>
+</head>
+<body>
+{% if dht_error %}
+{{ dht_error }}
+{% else %}
+    <p>Temp: {{ temp_f | floatformat:2 }} F ({{ temp_c | floatformat:2 }} C)</p>
+    <p>Humidity: {{ humidity | floatformat:2 }}%</p>
+{% endif %}
+{% for object in obj %}
+<p>{{ object.date }} :: {{ object.temp_c }} C, Humidity: {{ object.humidity }}</p>
+{% endfor %}
+
+</body>
+</html>
