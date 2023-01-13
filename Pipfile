@@ -10,6 +10,7 @@ adafruit-circuitpython-dht = "*"
 celery = "*"
 django-celery-results = "*"
 redis = "*"
+djangorestframework = "*"
 
 [dev-packages]
 flake8 = "*"

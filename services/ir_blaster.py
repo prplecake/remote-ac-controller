@@ -4,6 +4,7 @@ REMOTE_NAME = 'ac-remote'
 
 
 class IRBlaster:
+    # pylint: disable=too-few-public-methods
 
     class RemoteCommands:
         POWER = "KEY_POWER"
