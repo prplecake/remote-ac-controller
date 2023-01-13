@@ -30,8 +30,10 @@ class IRBlaster:
 
 
 def main():
-    print(f'send_once test: {IRBlaster.send_once(IRBlaster.RemoteCommands.POWER)}')
-    print(f'send_many test: {IRBlaster.send_many(IRBlaster.RemoteCommands.POWER, 3)}')
+    print(f'send_once test: '
+          f'{IRBlaster.send_once(IRBlaster.RemoteCommands.POWER)}')
+    print(f'send_many test: '
+          f'{IRBlaster.send_many(IRBlaster.RemoteCommands.POWER, 3)}')
 
 
 if __name__ == '__main__':
