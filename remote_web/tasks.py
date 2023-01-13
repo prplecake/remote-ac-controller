@@ -13,7 +13,7 @@ app = Celery()
              name='update_dht_data',
              max_retries=3,
              soft_time_limit=5)
-def update_dht_data():
+def update_dht_data(self):  # pylint: disable=unused-argument
     print('update_dht_data called')
 
     (temp_c, humidity, error) = get_dht_data()
