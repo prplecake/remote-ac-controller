@@ -4,6 +4,7 @@ from services.dht import get_dht_data, convert_to_fahrenheit
 
 from .models import DhtSensorData
 
+
 class IndexView(TemplateView):
     template_name = 'webremote/index.html'
 

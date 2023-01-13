@@ -23,7 +23,6 @@ def get_dht_data() -> (float, float, str):
     try:
         # Print the values to the serial port
         temp_c = dhtDevice.temperature
-        temp_f = convert_to_fahrenheit(temp_c)
         humidity = dhtDevice.humidity
     except RuntimeError as err:
         # print(error.args[0])
@@ -40,14 +39,10 @@ def convert_to_fahrenheit(temp_c: float) -> float:
 
 def main():
     while True:
-        (temp_c, humidity, error) = get_dht_data()
+        (temp_c, humidity, _) = get_dht_data()
         temp_f = convert_to_fahrenheit(temp_c)
-        print('{} :: Temp: {:.2f} F ({:.2f} C) : Humidity: {:.2f}%'.format(
-            datetime.now(),
-            temp_f,
-            temp_c,
-            humidity
-        ))
+        print(f'{datetime.now()} :: Temp: {temp_f:.2f} F'
+              f' ({temp_c:.2f} C) : Humidity: {humidity:.2f}%')
         time.sleep(2.0)
 
 
