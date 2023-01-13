@@ -1,22 +1,45 @@
-{%  load webremote_extras %}
+{% load webremote_extras %}
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-     <meta http-equiv="refresh" content="300">
+    <meta http-equiv="refresh" content="300">
     <title>webremote</title>
+    <style type="text/css">
+        body {
+            padding: 0;
+        }
+
+        .parent {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .child {
+            width: 50%;
+            height: 100vh;
+        }
+    </style>
 </head>
 <body>
-{% if dht_error %}
-{{ dht_error }}
-{% else %}
-    <p>Temp: {{ temp_f | floatformat:2 }} F ({{ temp_c | floatformat:2 }} C)</p>
-    <p>Humidity: {{ humidity | floatformat:2 }}%</p>
-{% endif %}
-{% for object in obj %}
-<p>{{ object.date }} :: {{ object.temp_c|convert_to_fahrenheit|floatformat:2 }} F ({{ object.temp_c }} C), Humidity: {{ object.humidity }}</p>
-{% endfor %}
+<div class="parent">
+    <div class="child">
+        {% if dht_error %}
+            {{ dht_error }}
+        {% else %}
+            <p>Temp: {{ temp_f | floatformat:2 }} F ({{ temp_c | floatformat:2 }} C)</p>
+            <p>Humidity: {{ humidity | floatformat:2 }}%</p>
+        {% endif %}
+        {% for object in obj %}
+            <p>{{ object.date }} :: {{ object.temp_c|convert_to_fahrenheit|floatformat:2 }} F ({{ object.temp_c }} C),
+                Humidity: {{ object.humidity }}</p>
+        {% endfor %}
+    </div>
+    <div class="child">
+        {% include "webremote/remote_control.html" %}
+    </div>
+</div>
 
 </body>
 </html>
