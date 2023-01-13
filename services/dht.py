@@ -30,7 +30,7 @@ def get_dht_data() -> (float, float, str):
     except NameError as err:
         error = err.args[0]
 
-    if error != '':
+    if error:
         (temp_c, humidity, error) = get_dht_data()
 
     return temp_c, humidity, error
