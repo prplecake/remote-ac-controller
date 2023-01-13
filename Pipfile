@@ -12,6 +12,10 @@ django-celery-results = "*"
 redis = "*"
 
 [dev-packages]
+flake8 = "*"
+pylint = "*"
+bandit = "*"
+pylint-django = "*"
 
 [requires]
 python_version = "3.9"
