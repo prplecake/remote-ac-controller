@@ -8,5 +8,6 @@ https://user-images.githubusercontent.com/83595468/212430312-2f6c45ab-76fd-4837-
 
 ## See also
 
+- [circuit schematic](https://github.com/prplecake/remote-ac-controller/wiki/Schematic)
 - [frigidaire ac remote lirc config](https://gist.github.com/prplecake/71c4bc8584541cf7423b922b81733c3a)
 - [IRreceiver MCU code](https://github.com/prplecake/IRreceiver)
