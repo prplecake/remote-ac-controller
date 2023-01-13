@@ -1,6 +1,6 @@
 from django.views.generic import TemplateView
 
-from services.DHT import get_dht_data, convert_to_fahrenheit
+from services.dht import get_dht_data, convert_to_fahrenheit
 
 from .models import DhtSensorData
 
