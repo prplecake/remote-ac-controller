@@ -5,6 +5,8 @@ name = "pypi"
 
 [packages]
 django = "*"
+adafruit-blinka = "*"
+adafruit-circuitpython-dht = "*"
 
 [dev-packages]
 
