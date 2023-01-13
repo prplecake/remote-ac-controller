@@ -15,6 +15,7 @@ redis = "*"
 flake8 = "*"
 pylint = "*"
 bandit = "*"
+pylint-django = "*"
 
 [requires]
 python_version = "3.9"
