@@ -12,7 +12,7 @@ app.config_from_object('django.conf:settings', namespace='CELERY')
 app.conf.beat_schedule = {
     "every minute": {
         "task": "update_dht_data",
-        "schedule": crontab()
+        "schedule": crontab(minute='*/5')
     }
 }
 
