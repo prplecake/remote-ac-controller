@@ -1,3 +1,5 @@
+{%  load webremote_extras %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +15,7 @@
     <p>Humidity: {{ humidity | floatformat:2 }}%</p>
 {% endif %}
 {% for object in obj %}
-<p>{{ object.date }} :: {{ object.temp_c }} C, Humidity: {{ object.humidity }}</p>
+<p>{{ object.date }} :: {{ object.temp_c|convert_to_fahrenheit|floatformat:2 }} F ({{ object.temp_c }} C), Humidity: {{ object.humidity }}</p>
 {% endfor %}
 
 </body>
