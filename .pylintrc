@@ -104,6 +104,7 @@ unsafe-load-any-extension=no
 disable=
     C0114,
     C0115,
+    C0116,
 
 
 [BASIC]
