@@ -23,6 +23,11 @@ jobs:
     - name: Install Dependencies
       run: |
         pipenv install --deploy --dev
+    - name: Setup envrionment
+      run: |
+        echo "$DJANGO_ENV" >> ac_ctl_web/env.py
+      env:
+        DJANGO_ENV: ${{secrets.DJANGO_ENV}}
     - name: Run Tests
       run: |
         pipenv run python manage.py test
