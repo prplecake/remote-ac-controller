@@ -11,6 +11,8 @@ celery = "*"
 django-celery-results = "*"
 redis = "*"
 djangorestframework = "*"
+setuptools = "*"
+gunicorn = "*"
 
 [dev-packages]
 flake8 = "*"
