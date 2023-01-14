@@ -63,6 +63,9 @@ local_settings.py
 db.sqlite3
 db.sqlite3-journal
 
+# Celery stuff:
+celerybeat-schedule.db
+
 # Flask stuff:
 instance/
 .webassets-cache
