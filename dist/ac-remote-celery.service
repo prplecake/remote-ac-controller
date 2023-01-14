@@ -1,0 +1,18 @@
+[Unit]
+Description=ac-remote-celery worker
+After=network.target
+
+[Service]
+Type=simple
+User=pi
+Group=pi
+Environment="PYTHONPATH=/home/app/.local/lib/python3.9/site-packages"
+WorkingDirectory=/home/pi/remote-ac-controller
+ExecStart=/home/pi/.virtualenvs/remote-ac-controller/bin/celery -A ac_ctl_web worker -B
+
+ExecReload=/bin/kill -SIGUSR1 $MAINPID
+TimeoutSec=15
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
