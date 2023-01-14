@@ -21,4 +21,4 @@ jobs:
     - name: Analysing the code with flake8
       if: always()
       run: |
-        pipenv run flake8 $(git ls-files '*.py')
+        pipenv run flake8
