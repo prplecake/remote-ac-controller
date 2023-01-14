@@ -4,4 +4,8 @@ from .models import (
     DhtSensorData
 )
 
-admin.site.register(DhtSensorData)
+
+class DhtSensorDataAdmin(admin.ModelAdmin):
+    list_display = ('date', 'temp_c', 'humidity')
+
+admin.site.register(DhtSensorData, DhtSensorDataAdmin)
