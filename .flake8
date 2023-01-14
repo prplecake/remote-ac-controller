@@ -1,3 +1,5 @@
 [flake8]
+exclude =
+    migrations
 per-file-ignores =
     ac_ctl_web/settings.py:E501

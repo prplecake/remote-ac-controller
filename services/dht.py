@@ -3,6 +3,8 @@
 from datetime import datetime
 import time
 
+from django.conf import settings
+
 try:
     import board
 except NotImplementedError:
@@ -30,7 +32,7 @@ def get_dht_data() -> (float, float, str):
     except NameError as err:
         error = err.args[0]
 
-    if error:
+    if error and not settings.DJANGO_ENV == 'development':
         (temp_c, humidity, error) = get_dht_data()
 
     return temp_c, humidity, error
