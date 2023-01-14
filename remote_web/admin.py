@@ -8,4 +8,5 @@ from .models import (
 class DhtSensorDataAdmin(admin.ModelAdmin):
     list_display = ('date', 'temp_c', 'humidity')
 
+
 admin.site.register(DhtSensorData, DhtSensorDataAdmin)
