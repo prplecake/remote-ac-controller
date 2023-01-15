@@ -1,6 +1,9 @@
 #Secrets
 env.py
 
+# Vendor packages
+node_modules/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
