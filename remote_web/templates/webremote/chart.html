@@ -1,0 +1,40 @@
+<br/><br/>
+<canvas id="chart"></canvas>
+
+<script src="/static/chart.js/dist/chart.umd.js"></script>
+
+<script>
+    async function getDhtData() {
+        const response = await fetch('/api/dht/');
+
+        let data = await response.json();
+        console.log(data);
+        makeChart(data.reverse());
+    }
+    dhtData = getDhtData();
+    console.log(dhtData);
+    function makeChart(data) {
+        new Chart(
+            document.getElementById('chart'),
+            {
+                type: 'line',
+                data: {
+                    labels: data.map(row => row.date),
+                    datasets: [
+                        {
+                            label: 'Temp (F)',
+                            data: data.map(row => convert_to_fahrenheit(row.temp_c))
+                        },
+                        {
+                            label: 'Humidity (%)',
+                            data: data.map(row => row.humidity)
+                        }
+                    ]
+                }
+            }
+        )
+    }
+    function convert_to_fahrenheit(temp_c) {
+        return temp_c * (9/5) + 32
+    }
+</script>
