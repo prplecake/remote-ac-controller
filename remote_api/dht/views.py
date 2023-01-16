@@ -1,3 +1,4 @@
+from django.db.models import Q
 from rest_framework import viewsets
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -11,6 +12,11 @@ class DhtSensorDataViewSet(viewsets.ModelViewSet):
     serializer_class = DhtSensorDataSerializer
     http_method_names = ['get']
 
+
+class DhtSensorGraphDataViewSet(viewsets.ModelViewSet):
+    queryset = DhtSensorData.objects.filter(Q(date__contains=':00:'))
+    serializer_class = DhtSensorDataSerializer
+    http_method_names = ['get']
 
 @api_view()
 def get_last_record(request):
