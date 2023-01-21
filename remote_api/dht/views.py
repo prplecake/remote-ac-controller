@@ -18,6 +18,7 @@ class DhtSensorGraphDataViewSet(viewsets.ModelViewSet):
     serializer_class = DhtSensorDataSerializer
     http_method_names = ['get']
 
+
 @api_view()
 def get_last_record(request):
     obj = DhtSensorData.objects.last()
