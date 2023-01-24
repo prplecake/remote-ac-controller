@@ -15,7 +15,7 @@ class DhtSensorDataViewSet(viewsets.ModelViewSet):
 
 class DhtSensorGraphDataViewSet(viewsets.ModelViewSet):
     queryset = DhtSensorData.objects.filter(
-        Q(date__contains=':00:')).order_by('-date').reverse()[:24*7]
+        Q(date__contains=':00:')).order_by('-date').reverse()[24*7:]
     serializer_class = DhtSensorDataSerializer
     http_method_names = ['get']
 
