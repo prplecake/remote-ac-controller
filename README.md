@@ -10,7 +10,6 @@ https://user-images.githubusercontent.com/83595468/212430312-2f6c45ab-76fd-4837-
 
 requirements:
 
-* postgresql
 * redis
 
 ```shell
