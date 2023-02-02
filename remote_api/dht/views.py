@@ -33,9 +33,9 @@ class DhtSensorGraphDataViewSet(viewsets.ModelViewSet):
             limit = 24 * 7
         logger.debug(f'limit: {limit}')
         queryset = DhtSensorData.objects.filter(
-            Q(date__contains=':00:')).order_by('-date').reverse()[:limit]
+            Q(date__contains=':00:')).order_by('date')
         logger.debug(len(queryset))
-        return queryset
+        return queryset[:limit]
 
 
 @api_view()
