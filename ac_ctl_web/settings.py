@@ -148,7 +148,10 @@ CELERY_ACCEPT_CONTENT = ['application/json']
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
 
-LOG_LEVEL = env.LOG_LEVEL
+try:
+    LOG_LEVEL = env.LOG_LEVEL
+except AttributeError:
+    LOG_LEVEL = 'WARNING'
 if DEBUG:
     LOG_LEVEL = 'DEBUG'
 
