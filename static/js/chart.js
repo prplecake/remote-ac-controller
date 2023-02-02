@@ -1,13 +1,17 @@
-async function getDhtData() {
-    const response = await fetch('/api/dht/graph_data/');
+async function getDhtData(limit) {
+    const response = await fetch('/api/dht/graph_data/?limit=' + limit);
 
     let data = await response.json();
     makeChart(data);
 }
 
-getDhtData();
+getDhtData('14d');
+
+let chart;
+
 function makeChart(data) {
-    new Chart(
+    if (chart) { chart.destroy(); }
+    chart = new Chart(
         document.getElementById('chart'),
         {
             type: 'line',

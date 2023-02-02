@@ -4,7 +4,8 @@ import remote_api.dht.views as dht_views
 
 dht_router = routers.DefaultRouter()
 dht_router.register(r'get_data', dht_views.DhtSensorDataViewSet)
-dht_router.register(r'graph_data', dht_views.DhtSensorGraphDataViewSet)
+dht_router.register(r'graph_data',
+                    dht_views.DhtSensorGraphDataViewSet, 'graph-data')
 dht_patterns = dht_router.urls
 
 dht_patterns += [
