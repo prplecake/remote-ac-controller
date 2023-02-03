@@ -5,7 +5,7 @@ async function getDhtData(limit) {
     makeChart(data);
 }
 
-getDhtData('14d');
+getDhtData('3d');
 
 let chart;
 
