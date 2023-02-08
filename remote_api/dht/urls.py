@@ -9,7 +9,7 @@ dht_router.register(r'graph_data',
 dht_patterns = dht_router.urls
 
 dht_patterns += [
-    path('get_last', dht_views.get_last_record, name='get_last')
+    path('get_latest', dht_views.get_last_record, name='get_latest')
 ]
 
 urlpatterns = [
