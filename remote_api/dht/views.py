@@ -1,12 +1,14 @@
+import logging
+
 from django.db.models import Q
 from rest_framework import viewsets
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
 from remote_web.models import DhtSensorData
+from services.dht import get_dht_data
 from .serializers import DhtSensorDataSerializer
 
-import logging
 logger = logging.getLogger(__name__)
 
 
@@ -46,4 +48,14 @@ def get_last_record(request):
         'date': obj.date,
         'temp_c': obj.temp_c,
         'humidity': obj.humidity,
+    })
+
+
+@api_view()
+def get_current_record(request):
+    (temp_c, humidity, dht_error) = get_dht_data()
+    return Response({
+        'temp_c': temp_c,
+        'humidity': humidity,
+        'error': dht_error
     })
