@@ -1,3 +1,5 @@
+import logging
+
 from django.db.models import Q
 from rest_framework import viewsets
 from rest_framework.decorators import api_view
@@ -6,8 +8,6 @@ from rest_framework.response import Response
 from remote_web.models import DhtSensorData
 from services.dht import get_dht_data
 from .serializers import DhtSensorDataSerializer
-
-import logging
 
 logger = logging.getLogger(__name__)
 
