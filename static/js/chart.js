@@ -40,5 +40,5 @@ function makeChart(data) {
 }
 
 function convert_to_fahrenheit(temp_c) {
-    return (temp_c * (9 / 5) + 32).toFixed(1)
+    return (temp_c * (9 / 5) + 32).toFixed(2)
 }
