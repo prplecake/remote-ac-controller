@@ -12,10 +12,7 @@
 <div class="parent">
     <div class="child">
         <div id="latest-sensor-data"></div>
-        {% for object in obj %}
-            <p>{{ object.date }} :: {{ object.temp_c|convert_to_fahrenheit|floatformat:2 }} F ({{ object.temp_c }} C),
-                Humidity: {{ object.humidity }}</p>
-        {% endfor %}
+        <div id="historical-sensor-data"></div>
     </div>
     <div class="child">
         <div>
@@ -34,12 +31,15 @@
         const response = await fetch("/api/dht/get_current");
         let data = await response.json();
         update_latest_data(data);
+    }
 
-        setTimeout(get_latest_sensor_data, minuteInMiliseconds * 5);
+    async function get_historical_sensor_data() {
+        const response = await fetch("/api/dht/historical_data");
+        let data = await response.json();
+        update_historical_data(data);
     }
 
     function update_latest_data(data) {
-        console.log(data);
         let elem = document.getElementById("latest-sensor-data");
         let htmlText;
         if (data.error != "") {
@@ -51,7 +51,28 @@
         elem.innerHTML = htmlText;
     }
 
-    get_latest_sensor_data();
+    function update_historical_data(data) {
+        let elem = document.getElementById("historical-sensor-data");
+        let htmlText = "";
+        data.forEach(item => {
+            var date = new Date(item.date).toLocaleString();
+            let htmlString = "<p>"+date+" :: "+convert_to_fahrenheit(item.temp_c)+" F ("+item.temp_c+" C) "
+                +"Humidity: "+item.humidity+"</p>";
+            htmlText += htmlString;
+        });
+        {#htmlText = "<p>Temp: " + convert_to_fahrenheit(data.temp_c.toFixed(1)) + " F (" + data.temp_c.toFixed(1) + " C)</p>"#}
+        {#    + "<p>Humidity: " + data.humidity.toFixed(2) + "%</p>";#}
+
+        elem.innerHTML = htmlText;
+    }
+
+    function update_index() {
+        get_latest_sensor_data();
+        get_historical_sensor_data();
+        setTimeout(get_latest_sensor_data, minuteInMiliseconds * 5);
+    }
+
+    update_index()
 </script>
 </body>
 </html>

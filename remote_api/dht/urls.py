@@ -6,6 +6,8 @@ dht_router = routers.DefaultRouter()
 dht_router.register(r'get_data', dht_views.DhtSensorDataViewSet)
 dht_router.register(r'graph_data',
                     dht_views.DhtSensorGraphDataViewSet, 'graph-data')
+dht_router.register(r'historical_data',
+                    dht_views.DhtSensorHistoricalDataViewSet, 'historical_data')
 dht_patterns = dht_router.urls
 
 dht_patterns += [

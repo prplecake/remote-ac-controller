@@ -41,6 +41,23 @@ class DhtSensorGraphDataViewSet(viewsets.ModelViewSet):
         return queryset
 
 
+class DhtSensorHistoricalDataViewSet(viewsets.ModelViewSet):
+    serializer_class = DhtSensorDataSerializer
+    http_method_names = ['get']
+
+    def get_queryset(self):
+        logger.info('hello from the logger')
+        logger.debug(self.request.query_params)
+        limit_param = self.request.query_params.get('limit')
+        if limit_param is not None:
+            limit = limit_param
+        else:
+            limit = 20
+        logger.debug(f'limit: {limit}')
+        queryset = DhtSensorData.objects.order_by('-date')[:limit]
+        # queryset = list(reversed(queryset))
+        return queryset
+
 @api_view()
 def get_last_record(request):
     obj = DhtSensorData.objects.last()
