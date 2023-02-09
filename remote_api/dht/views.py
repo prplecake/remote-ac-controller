@@ -58,6 +58,7 @@ class DhtSensorHistoricalDataViewSet(viewsets.ModelViewSet):
         # queryset = list(reversed(queryset))
         return queryset
 
+
 @api_view()
 def get_last_record(request):
     obj = DhtSensorData.objects.last()
