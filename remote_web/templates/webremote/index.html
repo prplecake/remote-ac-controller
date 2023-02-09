@@ -24,55 +24,13 @@
         </div>
     </div>
 </div>
-<script>
-    const minuteInMiliseconds = 60000;
 
-    async function get_latest_sensor_data() {
-        const response = await fetch("/api/dht/get_current");
-        let data = await response.json();
-        update_latest_data(data);
-    }
-
-    async function get_historical_sensor_data() {
-        const response = await fetch("/api/dht/historical_data");
-        let data = await response.json();
-        update_historical_data(data);
-    }
-
-    function update_latest_data(data) {
-        let elem = document.getElementById("latest-sensor-data");
-        let htmlText;
-        if (data.error != "") {
-            htmlText = "<p>" + data.error + "</p>";
-        } else {
-            htmlText = "<p>Temp: " + convert_to_fahrenheit(data.temp_c.toFixed(1)) + " F (" + data.temp_c.toFixed(1) + " C)</p>"
-                + "<p>Humidity: " + data.humidity.toFixed(2) + "%</p>";
-        }
-        elem.innerHTML = htmlText;
-    }
-
-    function update_historical_data(data) {
-        let elem = document.getElementById("historical-sensor-data");
-        let htmlText = "";
-        data.forEach(item => {
-            var date = new Date(item.date).toLocaleString();
-            let htmlString = "<p>"+date+" :: "+convert_to_fahrenheit(item.temp_c)+" F ("+item.temp_c+" C) "
-                +"Humidity: "+item.humidity+"</p>";
-            htmlText += htmlString;
-        });
-        {#htmlText = "<p>Temp: " + convert_to_fahrenheit(data.temp_c.toFixed(1)) + " F (" + data.temp_c.toFixed(1) + " C)</p>"#}
-        {#    + "<p>Humidity: " + data.humidity.toFixed(2) + "%</p>";#}
-
-        elem.innerHTML = htmlText;
-    }
-
-    function update_index() {
-        get_latest_sensor_data();
-        get_historical_sensor_data();
-        setTimeout(update_index, minuteInMiliseconds * 5);
-    }
-
-    update_index()
-</script>
+{# Main Javascript #}
+<script src="{% static 'js/remote-ac.js' %}"></script>
+{# Chart scripts #}
+<script src="/static/chart.js/dist/chart.umd.js"></script>
+<script src="{% static 'js/chart.js' %}"></script>
+{# Remote scripts #}
+<script src="{% static 'js/remote.js' %}"></script>
 </body>
 </html>

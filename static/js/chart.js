@@ -10,7 +10,9 @@ getDhtData('3d');
 let chart;
 
 function makeChart(data) {
-    if (chart) { chart.destroy(); }
+    if (chart) {
+        chart.destroy();
+    }
     chart = new Chart(
         document.getElementById('chart'),
         {
@@ -37,8 +39,4 @@ function makeChart(data) {
             }
         }
     )
-}
-
-function convert_to_fahrenheit(temp_c) {
-    return (temp_c * (9 / 5) + 32).toFixed(2)
 }
