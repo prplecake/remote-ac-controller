@@ -23,8 +23,12 @@ $EDITOR ac_ctl_web/env.py
 # database migrations
 pipenv run python manage.py migrate
 # start development server
-pipenv run honcho start
+honcho start
 ```
+
+For "deployment" it would be better to use a reverse proxy like nginx. See [`dist/`][dist].
+
+[dist]:https://github.com/prplecake/remote-ac-controller/tree/master/dist
 
 ## see also
 
