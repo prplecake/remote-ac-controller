@@ -18,7 +18,7 @@ function makeChart(data) {
         {
             type: 'line',
             data: {
-                labels: data.map(row => row.date),
+                labels: data.map(row => formatDate(new Date(row.date))),
                 datasets: [
                     {
                         label: 'Temp (F)',
