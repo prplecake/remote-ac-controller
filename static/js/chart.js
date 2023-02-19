@@ -1,21 +1,20 @@
 async function getDhtData(limit) {
-    const response = await fetch('/api/dht/graph_data/?limit=' + limit);
-
-    let data = await response.json();
-    makeChart(data);
+    await fetch('/api/dht/graph_data/?limit=' + limit)
+        .then((response) => response.json())
+        .then((data) => makeChart(data));
 }
 
 const CHART_TIMEFRAME_KEY = 'chartTimeframe';
 
 function setChartTimeframe(tf){
     localStorage.setItem(CHART_TIMEFRAME_KEY, tf);
-    getDhtData(tf);
+    void getDhtData(tf);
 }
 
 if (localStorage.getItem(CHART_TIMEFRAME_KEY) == null) {
-    getDhtData('3d');
+    void getDhtData('3d');
 } else {
-    getDhtData(localStorage.getItem(CHART_TIMEFRAME_KEY));
+    void getDhtData(localStorage.getItem(CHART_TIMEFRAME_KEY));
 }
 
 let chart;
@@ -33,7 +32,7 @@ function makeChart(data) {
                 datasets: [
                     {
                         label: 'Temp (F)',
-                        data: data.map(row => convert_to_fahrenheit(row.temp_c))
+                        data: data.map(row => convertToFahrenheit(row.temp_c))
                     },
                     {
                         label: 'Humidity (%)',
