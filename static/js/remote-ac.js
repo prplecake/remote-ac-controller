@@ -35,7 +35,7 @@ function update_historical_data(data) {
     let elem = document.getElementById("historical-sensor-data");
     let htmlText = "";
     data.forEach(item => {
-        var date = new Date(item.date).toLocaleString();
+        let date = formatDate(new Date(item.date));
         let temp_f = convert_to_fahrenheit(item.temp_c);
         let temp_c = item.temp_c.toFixed(2);
         let humidity = item.humidity.toFixed(2);
@@ -50,6 +50,14 @@ function update_index() {
     get_latest_sensor_data();
     get_historical_sensor_data();
     setTimeout(update_index, minuteInMiliseconds * 5);
+}
+
+
+// https://gist.github.com/mohokh67/e0c5035816f5a88d6133b085361ad15b
+function formatDate(d) {
+    const date = d.toISOString().split('T')[0];
+    const time = d.toTimeString().split(' ')[0];
+    return `${date} ${time}`;
 }
 
 update_index()
