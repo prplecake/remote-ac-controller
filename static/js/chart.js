@@ -5,7 +5,18 @@ async function getDhtData(limit) {
     makeChart(data);
 }
 
-getDhtData('3d');
+const CHART_TIMEFRAME_KEY = 'chartTimeframe';
+
+function setChartTimeframe(tf){
+    localStorage.setItem(CHART_TIMEFRAME_KEY, tf);
+    getDhtData(tf);
+}
+
+if (localStorage.getItem(CHART_TIMEFRAME_KEY) == null) {
+    getDhtData('3d');
+} else {
+    getDhtData(localStorage.getItem(CHART_TIMEFRAME_KEY));
+}
 
 let chart;
 
