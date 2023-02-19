@@ -1,3 +1,4 @@
+# noinspection GrazieInspection
 """ac_ctl_web URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
