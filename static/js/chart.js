@@ -5,16 +5,34 @@ async function getDhtData(limit) {
 }
 
 const CHART_TIMEFRAME_KEY = 'chartTimeframe';
+let nextInterval = getNextInterval();
 
-function setChartTimeframe(tf){
+function setChartTimeframe(tf) {
     localStorage.setItem(CHART_TIMEFRAME_KEY, tf);
-    void getDhtData(tf);
+    updateChart();
 }
 
 if (localStorage.getItem(CHART_TIMEFRAME_KEY) == null) {
-    void getDhtData('3d');
+    void setChartTimeframe('3d');
 } else {
+    updateChart();
+}
+
+function getNextInterval() {
+    let now = new Date();
+    let millisTillNext = new Date(now.getFullYear(), now.getMonth(), now.getDate(), now.getHours() + 1, 0, 5, 0) - now;
+    if (millisTillNext < 0) {
+        getNextInterval();
+    }
+    return millisTillNext;
+}
+
+// Update chart every hour
+setInterval(updateChart, nextInterval);
+
+function updateChart() {
     void getDhtData(localStorage.getItem(CHART_TIMEFRAME_KEY));
+    nextInterval = getNextInterval();
 }
 
 let chart;
