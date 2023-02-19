@@ -32,11 +32,9 @@ function btn_mode_auto_fan() {
 
 function send_command(command) {
     fetch("/api/ir_blaster/send_once", {
-        method: "POST",
-        body: JSON.stringify({
+        method: "POST", body: JSON.stringify({
             "command": command,
-        }),
-        headers: {
+        }), headers: {
             "Content-Type": "application/json"
         },
     })
