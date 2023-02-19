@@ -9,6 +9,7 @@ from .models import DhtSensorData
 app = Celery()
 
 
+# noinspection PyUnusedLocal
 @shared_task(bind=True,
              name='update_dht_data',
              max_retries=3,
