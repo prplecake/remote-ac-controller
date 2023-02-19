@@ -6,6 +6,7 @@ import time
 from django.conf import settings
 
 try:
+    # noinspection PyPackageRequirements
     import board
 except NotImplementedError:
     pass
