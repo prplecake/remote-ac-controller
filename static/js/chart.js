@@ -63,7 +63,8 @@ function makeChart(data) {
                     x: {
                         display: false
                     }
-                }
+                },
+                animation: false
             }
         }
     )
