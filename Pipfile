@@ -13,6 +13,7 @@ redis = "*"
 djangorestframework = "*"
 setuptools = "*"
 gunicorn = "*"
+django-node-assets = {editable = true, git = "https://github.com/prplecake/django-node-assets@live"}
 
 [dev-packages]
 flake8 = "*"

@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'django_node_assets',
     'rest_framework',
 
     'remote_api',
@@ -126,6 +127,12 @@ USE_I18N = True
 USE_TZ = True
 
 
+# Node Modules
+# https://pypi.org/project/django-node-assets/
+
+NODE_PACKAGE_JSON = os.path.join(BASE_DIR, 'package.json')
+NODE_MODULES_ROOT = os.path.join(BASE_DIR, 'assets', 'node_modules')
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
@@ -133,9 +140,12 @@ STATIC_URL = 'static/'
 STATIC_ROOT = env.STATIC_ROOT
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
-    # This defines a prefix so the url paths will become `/static/node_modules/...`
-    (os.path.join(BASE_DIR, 'node_modules/')),
 )
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'django_node_assets.finders.NodeModulesFinder',
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
