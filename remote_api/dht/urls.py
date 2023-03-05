@@ -12,8 +12,7 @@ dht_router.register(r'historical_data',
 dht_patterns = dht_router.urls
 
 dht_patterns += [
-    path('get_latest', dht_views.get_last_record, name='get_latest'),
-    path('get_current', dht_views.get_current_record, name='get_current')
+    path('get_latest', dht_views.get_last_record, name='get_latest')
 ]
 
 urlpatterns = [
