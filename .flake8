@@ -1,5 +1,5 @@
 [flake8]
 exclude =
-    migrations
+    migrations,src
 per-file-ignores =
     ac_ctl_web/settings.py:E501
