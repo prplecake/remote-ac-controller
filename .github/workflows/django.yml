@@ -23,12 +23,10 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: 3.9
-    - name: Install pipenv
-      run: |
-        python -m pip install --upgrade pipenv wheel
     - name: Install Dependencies
       run: |
-        pipenv install --deploy --dev
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
     - name: Setup envrionment
       run: |
         echo "$DJANGO_ENV" >> ac_ctl_web/env.py
@@ -36,4 +34,4 @@ jobs:
         DJANGO_ENV: ${{secrets.DJANGO_ENV}}
     - name: Run Tests
       run: |
-        pipenv run python manage.py test
+        python manage.py test
