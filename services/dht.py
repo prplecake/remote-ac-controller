@@ -14,23 +14,27 @@ except NotImplementedError:
     pass
 import adafruit_dht
 
-# Initialize DHT11 sensor
-try:
-    dhtDevice = adafruit_dht.DHT11(board.D14)
-except NameError:
-    logger.warning("Could not initialize DHT11 sensor")
-    pass
+
+def dhtInitialize():
+    # Initialize DHT11 sensor
+    try:
+        dhtDevice = adafruit_dht.DHT11(board.D14)
+        return dhtDevice
+    except NameError:
+        logger.warning("Could not initialize DHT11 sensor")
+        pass
 
 
 def get_dht_data() -> (float, float, str):
+    dht_device = dhtInitialize()
     logger.debug("running 'get_dht_data'")
     temp_c: float = 0.0
     humidity: float = 0.0
     error: str = ''
     try:
         # Print the values to the serial port
-        temp_c = dhtDevice.temperature
-        humidity = dhtDevice.humidity
+        temp_c = dht_device.temperature
+        humidity = dht_device.humidity
     except RuntimeError as err:
         # print(error.args[0])
         error = err.args[0]
@@ -43,7 +47,7 @@ def get_dht_data() -> (float, float, str):
         (temp_c, humidity, error) = get_dht_data()
 
     logger.debug("calling dhtDevice.exit()")
-    dhtDevice.exit()
+    dht_device.exit()
 
     return temp_c, humidity, error
 
