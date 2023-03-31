@@ -37,7 +37,7 @@ pytz==2022.7.1
 pyusb==1.2.1
 PyYAML==6.0
 rcssmin==1.1.1
-redis==4.5.3
+redis==4.5.4
 rjsmin==1.2.1
 six==1.16.0
 smmap==5.0.0
