@@ -8,7 +8,7 @@ Adafruit-PureIO==1.1.10
 amqp==5.1.1
 asgiref==3.6.0
 async-timeout==4.0.2
-bandit==1.7.4
+bandit==1.7.5
 billiard==3.6.4.0
 celery==5.2.7
 click==8.1.3
