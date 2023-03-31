@@ -5,7 +5,7 @@ function convertToFahrenheit(temp_c) {
 const minuteInMiliseconds = 60000;
 
 async function getLatestSensorData() {
-    await fetch("/api/dht/get_latest")
+    await fetch("/api/dht/get_current")
         .then((response) => response.json())
         .then((data) => updateLatestData(data));
 }

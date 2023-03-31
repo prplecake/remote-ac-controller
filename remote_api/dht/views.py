@@ -65,8 +65,7 @@ def get_last_record(request):
     return Response({
         'date': obj.date,
         'temp_c': obj.temp_c,
-        'humidity': obj.humidity,
-        'error': ''
+        'humidity': obj.humidity
     })
 
 
