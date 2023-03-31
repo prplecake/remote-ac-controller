@@ -18,7 +18,7 @@ import adafruit_dht
 def dhtInitialize():
     # Initialize DHT11 sensor
     try:
-        dhtDevice = adafruit_dht.DHT11(board.D14)
+        dhtDevice = adafruit_dht.DHT11(board.D14, use_pulseio=False)
         return dhtDevice
     except NameError:
         logger.warning("Could not initialize DHT11 sensor")
