@@ -42,6 +42,9 @@ def get_dht_data() -> (float, float, str):
     if error and not settings.DJANGO_ENV == 'development':
         (temp_c, humidity, error) = get_dht_data()
 
+    logger.debug("calling dhtDevice.exit()")
+    dhtDevice.exit()
+
     return temp_c, humidity, error
 
 
