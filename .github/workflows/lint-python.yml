@@ -5,6 +5,10 @@ on:
     paths-ignore:
       - 'README.md'
       - 'docs/**'
+      - 'requirements.txt'
+      - 'package.json'
+      - 'package-lock.json'
+      
 
 jobs:
   build:
