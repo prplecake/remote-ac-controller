@@ -16,3 +16,21 @@ body {
 .child {
     width: 50%;
 }
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: black;
+        color: lightgray;
+    }
+    a {
+        color: #B985EA;
+    }
+    .text-muted {
+        color: #757575;
+    }
+    input[type=button] {
+        background-color: rgb(22, 22, 18);
+        border-color: rgb(28, 28, 28);
+        color: lightgray;
+    }
+}
