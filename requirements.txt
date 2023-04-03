@@ -17,7 +17,7 @@ click-plugins==1.1.1
 click-repl==0.2.0
 Django==4.1.7
 django-appconf==1.0.5
-django-celery-results==2.4.0
+django-celery-results==2.5.0
 django-compressor==4.3.1
 -e git+https://github.com/prplecake/django-node-assets@f01d6b2933a146fae9bdc23c704b478d43ef571a#egg=django_node_assets
 djangorestframework==3.14.0
