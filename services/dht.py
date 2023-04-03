@@ -5,8 +5,6 @@ import time
 
 from django.conf import settings
 
-logger = logging.getLogger(__name__)
-
 try:
     # noinspection PyPackageRequirements
     import board
@@ -14,8 +12,10 @@ except NotImplementedError:
     pass
 import adafruit_dht
 
+logger = logging.getLogger(__name__)
 
-def dhtInitialize():
+
+def dht_initialize():
     # Initialize DHT11 sensor
     try:
         dhtDevice = adafruit_dht.DHT11(board.D14, use_pulseio=False)
@@ -26,7 +26,7 @@ def dhtInitialize():
 
 
 def get_dht_data() -> (float, float, str):
-    dht_device = dhtInitialize()
+    dht_device = dht_initialize()
     logger.debug("running 'get_dht_data'")
     temp_c: float = 0.0
     humidity: float = 0.0
