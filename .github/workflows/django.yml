@@ -30,9 +30,7 @@ jobs:
         pip install -r requirements.txt
     - name: Setup envrionment
       run: |
-        echo "$DJANGO_ENV" >> ac_ctl_web/env.py
-      env:
-        DJANGO_ENV: ${{secrets.DJANGO_ENV}}
+        echo "${{secrets.DJANGO_ENV}}" >> ac_ctl_web/env.py
     - name: Run Tests
       run: |
         python manage.py test
