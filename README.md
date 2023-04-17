@@ -10,18 +10,24 @@ https://user-images.githubusercontent.com/83595468/212430312-2f6c45ab-76fd-4837-
 
 requirements:
 
+* [lirc](https://www.lirc.org/)
+* nodejs >= v16
 * redis
 
 ```shell
-# setup pipenv and install packages
-pipenv install
+# setup virtualenv and install packages
+python -m virtualenv venv
+source ./venv/bin/activate
+pip install -r requirements.txt
 # install npm packages
-npm install
+python manage.py npminstall
 # configure app
 cp ac_ctl_web/env.example.py ac_ctl_web/env.py
 $EDITOR ac_ctl_web/env.py
 # database migrations
-pipenv run python manage.py migrate
+python manage.py migrate
+# collect static
+python manage.py collectstatic
 # start development server
 honcho start
 ```
