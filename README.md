@@ -32,7 +32,8 @@ python manage.py collectstatic
 honcho start
 ```
 
-For "deployment" it would be better to use a reverse proxy like nginx. See [`dist/`][dist].
+For "deployment" it would be better to use a reverse proxy like nginx.
+See [`dist/`][dist].
 
 [dist]:https://github.com/prplecake/remote-ac-controller/tree/master/dist
 
