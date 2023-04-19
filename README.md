@@ -32,9 +32,15 @@ python manage.py collectstatic
 honcho start
 ```
 
-For "deployment" it would be better to use a reverse proxy like nginx. See [`dist/`][dist].
+For "deployment" it would be better to use a reverse proxy like nginx.
+See [`dist/`][dist].
 
 [dist]:https://github.com/prplecake/remote-ac-controller/tree/master/dist
+
+This gets the web interface set up along with the DHT sensor. Learn how to set
+up lirc [on the wiki][lirc-wiki].
+
+[lirc-wiki]:https://github.com/prpplecake/remote-ac-controller/wiki/lirc
 
 ## see also
 
