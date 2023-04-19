@@ -40,7 +40,7 @@ See [`dist/`][dist].
 This gets the web interface set up along with the DHT sensor. Learn how to set
 up lirc [on the wiki][lirc-wiki].
 
-[lirc-wiki]:https://github.com/prpplecake/remote-ac-controller/wiki/lirc
+[lirc-wiki]:https://github.com/prplecake/remote-ac-controller/wiki/lirc
 
 ## see also
 
