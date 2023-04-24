@@ -34,7 +34,7 @@ prompt-toolkit==3.0.38
 pycodestyle==2.10.0
 pyflakes==3.0.1
 pyftdi==0.54.0
-Pygments==2.15.0
+Pygments==2.15.1
 pyserial==3.5
 pytz==2023.3
 pyusb==1.2.1
