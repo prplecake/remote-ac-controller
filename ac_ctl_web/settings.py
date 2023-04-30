@@ -52,6 +52,7 @@ INSTALLED_APPS = [
 
     'remote_api',
     'remote_web',
+    'services',
 ]
 
 MIDDLEWARE = [
@@ -184,3 +185,9 @@ LOGGING = {
         'level': LOG_LEVEL,
     },
 }
+
+
+# Automation Settings
+
+TEMP_HIGH = env.TEMP_HIGH
+TEMP_LOW = env.TEMP_LOW
