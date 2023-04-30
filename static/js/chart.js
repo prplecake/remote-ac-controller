@@ -50,11 +50,13 @@ function makeChart(data) {
                 datasets: [
                     {
                         label: 'Temp (F)',
-                        data: data.map(row => convertToFahrenheit(row.temp_c))
+                        data: data.map(row => convertToFahrenheit(row.temp_c)),
+                        yAxisID: 'y'
                     },
                     {
                         label: 'Humidity (%)',
-                        data: data.map(row => row.humidity)
+                        data: data.map(row => row.humidity),
+                        yAxisID: 'y1'
                     }
                 ]
             },
@@ -62,6 +64,16 @@ function makeChart(data) {
                 scales: {
                     x: {
                         display: false
+                    },
+                    y: {
+                        type: 'linear',
+                        display: true,
+                        position: 'left'
+                    },
+                    y1: {
+                        type: 'linear',
+                        display: true,
+                        position: 'right',
                     }
                 },
                 animation: false
