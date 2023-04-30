@@ -26,4 +26,3 @@ def temperature_check(self):  # pylint: disable=unused-argument
     if temp < temp_low:
         # temperature is too low
         print('temp is too low')
-

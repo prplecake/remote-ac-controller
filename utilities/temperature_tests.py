@@ -1,7 +1,10 @@
 from django.test import TestCase
 
-from utilities.temperature import convert_to_celcius, convert_string_to_celcius, \
+from utilities.temperature import (
+    convert_to_celcius,
+    convert_string_to_celcius,
     convert_to_fahrenheit
+)
 
 
 class TemperatureTests(TestCase):
