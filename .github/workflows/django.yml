@@ -26,7 +26,7 @@ jobs:
       run: |
         echo "$DJANGO_ENV" >> ac_ctl_web/env.py
       env:
-        DJANGO_ENV: ${{secrets.DJANGO_ENV}}
+        DJANGO_ENV: ${{env.DJANGO_ENV}}
     - name: Run Tests
       run: |
         python manage.py test

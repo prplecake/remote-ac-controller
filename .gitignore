@@ -1,5 +1,6 @@
 #Secrets
 env.py
+env.*.py
 
 # Vendor packages
 node_modules/
