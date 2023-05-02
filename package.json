@@ -9,6 +9,6 @@
     "eslint-plugin-promise": "^6.1.1"
   },
   "scripts": {
-    "test": "eslint static/js/*.js"
+    "test:lint:js": "eslint static/js/*.js"
   }
 }
