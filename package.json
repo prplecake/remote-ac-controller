@@ -13,6 +13,8 @@
   },
   "scripts": {
     "test:lint:js": "eslint static/js/*.js",
-    "test:lint:sass": "stylelint \"**/*.{css,scss}\" && prettier --check \"**/*.{css,scss}\""
+    "test:lint:sass": "stylelint \"**/*.{css,scss}\" && prettier --check \"**/*.{css,scss}\"",
+    "format": "prettier --write .",
+    "format-check": "prettier --check ."
   }
 }
