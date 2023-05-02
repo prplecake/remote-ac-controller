@@ -1,3 +1,5 @@
+/* global Chart, formatDate, convertToFahrenheit */
+
 async function getDhtData(limit) {
     await fetch('/api/dht/graph_data/?limit=' + limit)
         .then((response) => response.json())
