@@ -1,4 +1,4 @@
-name: Lint JavaScript
+name: Lint CSS
 
 on:
   push:
@@ -10,7 +10,7 @@ on:
       - 'package-lock.json'
 
 jobs:
-  eslint:
+  lint-css:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -31,8 +31,8 @@ jobs:
             ${{ runner.os }}-node-
       - name: Install dependencies
         run: |
-          npm i -g eslint
+          npm install
       - name: Analysing the code with eslint
         if: always()
         run: |
-          npm run test:lint:js
+          npm run test:lint:sass

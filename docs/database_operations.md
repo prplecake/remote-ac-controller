@@ -1,6 +1,5 @@
 # database operations
 
-
 ## migrations
 
 [django docs](https://docs.djangoproject.com/en/4.1/topics/migrations/)
