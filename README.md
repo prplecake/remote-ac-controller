@@ -10,9 +10,9 @@ https://user-images.githubusercontent.com/83595468/212430312-2f6c45ab-76fd-4837-
 
 requirements:
 
-* [lirc](https://www.lirc.org/)
-* nodejs >= v16
-* redis
+- [lirc](https://www.lirc.org/)
+- nodejs >= v16
+- redis
 
 ```shell
 # setup virtualenv and install packages
@@ -35,12 +35,12 @@ honcho start
 For "deployment" it would be better to use a reverse proxy like nginx.
 See [`dist/`][dist].
 
-[dist]:https://github.com/prplecake/remote-ac-controller/tree/master/dist
+[dist]: https://github.com/prplecake/remote-ac-controller/tree/master/dist
 
 This gets the web interface set up along with the DHT sensor. Learn how to set
 up lirc [on the wiki][lirc-wiki].
 
-[lirc-wiki]:https://github.com/prplecake/remote-ac-controller/wiki/lirc
+[lirc-wiki]: https://github.com/prplecake/remote-ac-controller/wiki/lirc
 
 ## see also
 
