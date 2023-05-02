@@ -35,4 +35,4 @@ jobs:
     - name: Analysing the code with eslint
       if: always()
       run: |
-        npm test
+        npm test:lint:js
