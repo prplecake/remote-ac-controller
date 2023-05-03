@@ -33,23 +33,24 @@ def get_dht_data() -> (float, float, str):
     temp_c: float = 0.0
     humidity: float = 0.0
     error: str = ''
-    try:
-        # Print the values to the serial port
-        temp_c = dht_device.temperature
-        humidity = dht_device.humidity
-    except RuntimeError as err:
-        # print(error.args[0])
-        error = err.args[0]
-    except NameError as err:
-        error = err.args[0]
+    if dht_device is not None:
+        try:
+            # Print the values to the serial port
+            temp_c = dht_device.temperature
+            humidity = dht_device.humidity
+        except RuntimeError as err:
+            # print(error.args[0])
+            error = err.args[0]
+        except NameError as err:
+            error = err.args[0]
 
-    logger.warning("'get_dht_data' got error: %s", error)
+        logger.warning("'get_dht_data' got error: %s", error)
 
-    if error and not settings.DJANGO_ENV == 'development':
-        (temp_c, humidity, error) = get_dht_data()
+        if error and not settings.DJANGO_ENV == 'development':
+            (temp_c, humidity, error) = get_dht_data()
 
-    logger.debug("calling dhtDevice.exit()")
-    dht_device.exit()
+        logger.debug("calling dhtDevice.exit()")
+        dht_device.exit()
 
     return temp_c, humidity, error
 
