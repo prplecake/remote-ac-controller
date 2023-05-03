@@ -7,7 +7,14 @@ const minuteInMiliseconds = 60000;
 async function getLatestSensorData() {
   await fetch('/api/dht/get_current')
     .then((response) => response.json())
-    .then((data) => updateLatestData(data));
+    .then((data) => updateLatestData(data))
+    .catch((error) => {
+      if (error instanceof SyntaxError) {
+        console.log(error);
+      } else {
+        console.error(error);
+      }
+    });
 }
 
 async function getHistoricalSensorData() {
