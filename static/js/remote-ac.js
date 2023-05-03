@@ -77,9 +77,16 @@ function updateIndex() {
 
 // https://gist.github.com/mohokh67/e0c5035816f5a88d6133b085361ad15b
 function formatDate(d) {
-  const date = d.toISOString().split('T')[0];
-  const time = d.toTimeString().split(' ')[0];
-  return `${date} ${time}`;
+  try {
+    const date = d.toISOString().split('T')[0];
+    const time = d.toTimeString().split(' ')[0];
+    return `${date} ${time}`;
+  } catch (error) {
+    if (error instanceof RangeError){
+      console.debug('could not format date: ' + d)
+    }
+    return undefined;
+  }
 }
 
 updateIndex();
