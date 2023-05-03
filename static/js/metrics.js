@@ -1,3 +1,12 @@
+function update_humidity_metric(metric, humidity) {
+  let elem = document.getElementById('metrics_'+metric);
+  humidity = humidity.toFixed(2);
+  let htmlText = '';
+  let htmlString = humidity + '&percnt;';
+  htmlText += htmlString;
+  elem.innerHTML = htmlText;
+}
+
 function update_temp_metric(metric, temp_c) {
   let elem = document.getElementById('metrics_'+metric);
   let htmlText = '';
@@ -10,6 +19,24 @@ function update_temp_metric(metric, temp_c) {
     '&deg;C)';
   htmlText += htmlString;
   elem.innerHTML = htmlText;
+}
+
+async function getDhtAvgHumidity() {
+  await fetch('/api/dht/metrics/humidity_avg')
+    .then((response) => response.json())
+    .then((data) => update_humidity_metric('humidity_avg', data.humidity__avg));
+}
+
+async function getDhtHighHumidity() {
+  await fetch('/api/dht/metrics/humidity_high')
+    .then((response) => response.json())
+    .then((data) => update_humidity_metric('humidity_high', data.humidity__max));
+}
+
+async function getDhtLowHumidity() {
+  await fetch('/api/dht/metrics/humidity_low')
+    .then((response) => response.json())
+    .then((data) => update_humidity_metric('humidity_low', data.humidity__min));
 }
 
 async function getDhtAvgTemp() {
@@ -36,8 +63,15 @@ function update_temps() {
   void getDhtHighTemp();
 }
 
+function update_humidity() {
+  void getDhtLowHumidity();
+  void getDhtAvgHumidity();
+  void getDhtHighHumidity();
+}
+
 function updateMetrics() {
   void update_temps();
+  void update_humidity();
   setTimeout(updateMetrics, minuteInMiliseconds * 60);
 }
 
