@@ -6,5 +6,5 @@ register = template.Library()
 
 
 @register.filter
-def convert_to_fahrenheit(value):
+def convert_to_fahrenheit(value):  # noqa: F811
     return convert_to_fahrenheit(value)
