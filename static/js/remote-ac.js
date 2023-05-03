@@ -1,5 +1,5 @@
 function convertToFahrenheit(temp_c) {
-  return (temp_c * (9 / 5) + 32).toFixed(2);
+  return (temp_c * (9 / 5) + 32).toFixed(1);
 }
 
 const minuteInMiliseconds = 60000;
@@ -23,17 +23,17 @@ function updateLatestData(data) {
     htmlText = '<p>' + data.error + '</p>';
   } else {
     let temp_f = convertToFahrenheit(data.temp_c);
-    let temp_c = data.temp_c.toFixed(2);
+    let temp_c = data.temp_c.toFixed(0);
     let humidity = data.humidity.toFixed(2);
     htmlText =
       '<p>Temp: ' +
       temp_f +
-      ' F (' +
+      '&deg;F (' +
       temp_c +
-      ' C)</p>' +
+      '&deg;C)</p>' +
       '<p>Humidity: ' +
       humidity +
-      '%</p>';
+      '&percnt;</p>';
   }
   elem.innerHTML = htmlText;
 }
@@ -44,19 +44,19 @@ function updateHistoricalData(data) {
   data.forEach((item) => {
     let date = formatDate(new Date(item.date));
     let temp_f = convertToFahrenheit(item.temp_c);
-    let temp_c = item.temp_c.toFixed(2);
+    let temp_c = item.temp_c.toFixed(0);
     let humidity = item.humidity.toFixed(2);
     let htmlString =
       '<p>' +
       date +
       ' :: ' +
       temp_f +
-      ' F (' +
+      '&deg;F (' +
       temp_c +
-      ' C) ' +
+      '&deg;C) ' +
       'Humidity: ' +
       humidity +
-      '</p>';
+      '&percnt;</p>';
     htmlText += htmlString;
   });
   elem.innerHTML = htmlText;
