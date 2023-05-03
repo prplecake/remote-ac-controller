@@ -1,6 +1,8 @@
 from celery import Celery, shared_task
 from django.conf import settings
 
+from ac_ctl.state import state
+
 from remote_web.models import DhtSensorData
 from services.ir_blaster import IRBlaster
 from utilities.temperature import convert_string_to_celcius
@@ -25,12 +27,11 @@ def temperature_check(self):  # pylint: disable=unused-argument
         # temperature is too high
         print('temp is too high')
         # turn on AC
-        IRBlaster.send_once(IRBlaster.RemoteCommands.POWER)
-        # this will cause problems... need to store state of power somehow...
-        # what if temp is too high but then we turn off the AC? :|
+        if not state.ac_unit_on:
+            IRBlaster.send_once(IRBlaster.RemoteCommands.POWER)
     if temp < temp_low:
         # temperature is too low
         print('temp is too low')
         # turn off AC
-        IRBlaster.send_once(IRBlaster.RemoteCommands.POWER)
-        # see above
+        if state.ac_unit_on:
+            IRBlaster.send_once(IRBlaster.RemoteCommands.POWER)
