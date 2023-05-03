@@ -1,5 +1,20 @@
 {
   "dependencies": {
-    "chart.js": "^4.2.1"
+    "chart.js": "^4.3.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.39.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-n": "^15.7.0",
+    "eslint-plugin-promise": "^6.1.1",
+    "prettier": "^2.8.8",
+    "stylelint": "^15.6.0",
+    "stylelint-config-standard": "^33.0.0"
+  },
+  "scripts": {
+    "test:lint:js": "eslint static/js/*.js",
+    "test:lint:sass": "stylelint \"**/*.{css,scss}\" && prettier --check \"**/*.{css,scss}\"",
+    "format": "prettier --write .",
+    "format-check": "prettier --check ."
   }
 }

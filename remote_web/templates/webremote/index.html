@@ -24,6 +24,10 @@
         <div>
             {% include "webremote/chart.html" %}
         </div>
+
+        <div>
+            {% include "webremote/metrics.html" %}
+        </div>
     </div>
 </div>
 
@@ -33,6 +37,7 @@
 <!--suppress HtmlUnknownTarget -->
 <script src="/static/chart.js/dist/chart.umd.js"></script>
 <script src="{% static 'js/chart.js' %}"></script>
+<script src="{% static 'js/metrics.js' %}"></script>
 {# Remote scripts #}
 <script src="{% static 'js/remote.js' %}"></script>
 </body>

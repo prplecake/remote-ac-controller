@@ -60,8 +60,8 @@ def main():
     while True:
         (temp_c, humidity, _) = get_dht_data()
         temp_f = convert_to_fahrenheit(temp_c)
-        print(f'{datetime.now()} :: Temp: {temp_f:.2f} F'
-              f' ({temp_c:.2f} C) : Humidity: {humidity:.2f}%')
+        print(f'{datetime.now()} :: Temp: {temp_f:.1f} F'
+              f' ({temp_c:.0f} C) : Humidity: {humidity:.2f}%')
         time.sleep(2.0)
 
 
