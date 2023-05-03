@@ -1,33 +1,43 @@
-function update_metric(metric, data) {
-  let elem = document.getElementById(metric);
+function update_temp_metric(metric, temp_c) {
+  let elem = document.getElementById('metrics_'+metric);
   let htmlText = '';
-  let date = formatDate(new Date(data.date));
-  let temp_f = convertToFahrenheit(data.temp_c);
-  let temp_c = data.temp_c.toFixed(0);
+  let temp_f = convertToFahrenheit(temp_c);
+  temp_c = temp_c.toFixed(0);
   let htmlString =
-    '<p>' +
     temp_f +
     '&deg;F (' +
     temp_c +
-    '&deg;C) on ' +
-    date +
-    '</p>';
+    '&deg;C)';
   htmlText += htmlString;
   elem.innerHTML = htmlText;
 }
 
-function updateLowTemp(data) {
-  update_metric("low_temp", data);
+async function getDhtAvgTemp() {
+  await fetch('/api/dht/metrics/temp_avg')
+    .then((response) => response.json())
+    .then((data) => update_temp_metric('temp_avg', data.temp_c__avg));
+}
+
+async function getDhtHighTemp() {
+  await fetch('/api/dht/metrics/temp_high')
+    .then((response) => response.json())
+    .then((data) => update_temp_metric('temp_high', data.temp_c__max));
 }
 
 async function getDhtLowTemp() {
   await fetch('/api/dht/metrics/temp_low')
     .then((response) => response.json())
-    .then((data) => updateLowTemp(data));
+    .then((data) => update_temp_metric('temp_low', data.temp_c__min));
+}
+
+function update_temps() {
+  void getDhtLowTemp();
+  void getDhtAvgTemp();
+  void getDhtHighTemp();
 }
 
 function updateMetrics() {
-  void getDhtLowTemp();
+  void update_temps();
   setTimeout(updateMetrics, minuteInMiliseconds * 60);
 }
 
