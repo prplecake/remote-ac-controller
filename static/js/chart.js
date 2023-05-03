@@ -83,6 +83,8 @@ function makeChart(data) {
           type: 'linear',
           display: true,
           position: 'right',
+          suggestedMax: 100,
+          suggestedMin: 0
         },
       },
       animation: false,
