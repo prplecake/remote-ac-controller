@@ -1,6 +1,7 @@
 from django.urls import path, include
 from rest_framework import routers
 import remote_api.dht.views as dht_views
+import remote_api.dht.views_metrics as metric_views
 
 dht_router = routers.DefaultRouter()
 dht_router.register(r'get_data', dht_views.DhtSensorDataViewSet)
@@ -16,6 +17,15 @@ dht_patterns += [
     path('get_current', dht_views.get_current_record, name='get_current')
 ]
 
+metrics_patterns = [
+    path('temp_avg', metric_views.get_temp_avg_record, name='metrics_temp_avg'),
+    path('temp_high', metric_views.get_temp_high_record,
+         name='metrics_temp_high'),
+    path('temp_low', metric_views.get_temp_low_record, name='metrics_temp_low'),
+]
+
 urlpatterns = [
-    path('', include((dht_patterns, 'dht'), namespace='dht'))
+    path('metrics/', include((metrics_patterns, 'metrics'),
+                            namespace='metrics')),
+    path('', include((dht_patterns, 'dht'), namespace='dht')),
 ]
