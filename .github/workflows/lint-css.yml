@@ -10,7 +10,7 @@ on:
       - 'package-lock.json'
 
 jobs:
-  lint-css:
+  stylelint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
