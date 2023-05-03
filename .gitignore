@@ -1,5 +1,8 @@
-#Secrets
+# Secrets
 env.py
+
+# Databases
+*.sqlite3
 
 # Vendor packages
 node_modules/
