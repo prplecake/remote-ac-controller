@@ -43,11 +43,11 @@ class AcControlState:
         return State.objects.get(id=1)
 
     def _get_ac_unit_on(self):
-        print("Get AC Unit Status")
+        logger.debug("Get AC Unit Status")
         return self.state.ac_unit_on
 
     def _set_ac_unit_on(self, value):
-        print("Setting AC Unit Status")
+        logger.debug("Setting AC Unit Status")
         self.state.ac_unit_on = value
         self.state.save()
 
