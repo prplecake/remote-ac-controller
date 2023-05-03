@@ -24,14 +24,16 @@ metrics_patterns = [
          name='metrics_humidity_high'),
     path('humidity_low', metric_views.get_humidity_low_record,
          name='metrics_humidity_low'),
-    path('temp_avg', metric_views.get_temp_avg_record, name='metrics_temp_avg'),
+    path('temp_avg', metric_views.get_temp_avg_record,
+         name='metrics_temp_avg'),
     path('temp_high', metric_views.get_temp_high_record,
          name='metrics_temp_high'),
-    path('temp_low', metric_views.get_temp_low_record, name='metrics_temp_low'),
+    path('temp_low', metric_views.get_temp_low_record,
+         name='metrics_temp_low'),
 ]
 
 urlpatterns = [
     path('metrics/', include((metrics_patterns, 'metrics'),
-                            namespace='metrics')),
+                             namespace='metrics')),
     path('', include((dht_patterns, 'dht'), namespace='dht')),
 ]

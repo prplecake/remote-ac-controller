@@ -1,13 +1,10 @@
 import logging
 
-from django.db.models import Q, Min, Max, Avg
-from rest_framework import viewsets
+from django.db.models import Min, Max, Avg
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
 from remote_web.models import DhtSensorData
-from services.dht import get_dht_data
-from .serializers import DhtSensorDataSerializer
 
 logger = logging.getLogger(__name__)
 
