@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'django_node_assets',
     'rest_framework',
 
+    'ac_ctl',
     'remote_api',
     'remote_web',
     'services',
