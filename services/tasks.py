@@ -5,7 +5,8 @@ from ac_ctl.state import state
 
 from remote_web.models import DhtSensorData
 from services.ir_blaster import IRBlaster
-from utilities.temperature import convert_string_to_celcius
+from utilities.temperature import convert_string_to_celcius, \
+    convert_to_fahrenheit
 
 app = Celery()
 
@@ -17,7 +18,7 @@ def temperature_check(self):  # pylint: disable=unused-argument
     print('temperature_check called')
     result = DhtSensorData.objects.last()
     temp = result.temp_c
-    print(f'temperature: {temp}')
+    print(f'temperature: {convert_to_fahrenheit(temp)}({temp})')
     print(f'Settings Temp High: {settings.TEMP_HIGH}')
     print(f'Settings Temp Low: {settings.TEMP_LOW}')
     temp_high = convert_string_to_celcius(settings.TEMP_HIGH)
