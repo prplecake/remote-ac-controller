@@ -18,6 +18,12 @@ dht_patterns += [
 ]
 
 metrics_patterns = [
+    path('humidity_avg', metric_views.get_humidity_avg_record,
+         name='metrics_humidity_avg'),
+    path('humidity_high', metric_views.get_humidity_high_record,
+         name='metrics_humidity_high'),
+    path('humidity_low', metric_views.get_humidity_low_record,
+         name='metrics_humidity_low'),
     path('temp_avg', metric_views.get_temp_avg_record, name='metrics_temp_avg'),
     path('temp_high', metric_views.get_temp_high_record,
          name='metrics_temp_high'),
