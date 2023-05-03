@@ -1,3 +1,5 @@
+/* global convertToFahrenheit, minuteInMiliseconds */
+
 function update_humidity_metric(metric, humidity) {
   let elem = document.getElementById('metrics_'+metric);
   humidity = humidity.toFixed(2);
