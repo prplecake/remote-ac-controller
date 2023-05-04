@@ -6,10 +6,6 @@ on:
   pull_request:
     branches: [master]
 
-defaults:
-  run:
-    working-directory: backend
-
 jobs:
   django:
     runs-on: ubuntu-latest
@@ -33,3 +29,7 @@ jobs:
       - name: Run Tests
         run: |
           python manage.py test
+      - name: Check migrations
+        run: |
+          python manage.py migrate
+          
