@@ -40,7 +40,8 @@ function getNextInterval() {
 setInterval(updateChart, nextInterval);
 
 function updateChart() {
-  void fetchDhtData(localStorage.getItem(CHART_TIMEFRAME_KEY));
+  fetchDhtData(localStorage.getItem(CHART_TIMEFRAME_KEY))
+    .then(data => makeChart(data));
   nextInterval = getNextInterval();
 }
 
