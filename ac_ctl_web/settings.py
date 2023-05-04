@@ -51,8 +51,10 @@ INSTALLED_APPS = [
     'django_node_assets',
     'rest_framework',
 
+    'ac_ctl',
     'remote_api',
     'remote_web',
+    'services',
 ]
 
 MIDDLEWARE = [
@@ -185,3 +187,16 @@ LOGGING = {
         'level': LOG_LEVEL,
     },
 }
+
+
+# Automation Settings
+
+try:
+    TEMP_HIGH = env.TEMP_HIGH
+except AttributeError:
+    print("Please set TEMP_HIGH in your env.py")
+    quit(1)
+try:
+    TEMP_LOW = env.TEMP_LOW
+except AttributeError:
+    print("Please set TEMP_LOW in your env.py")

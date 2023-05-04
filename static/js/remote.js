@@ -49,3 +49,30 @@ function send_command(command) {
     }
   });
 }
+
+async function toggle_ac_power_state() {
+  await fetch('/api/app/state/ac_power/toggle', {
+    method: 'POST',
+  }).then(function (res) {
+    if (!res.ok) {
+      console.warn('Request failed.');
+      console.warn(res.json());
+    }
+    return res.json()
+  }).then(function (data) {
+    console.debug(data)
+  })
+}
+
+async function get_ac_power_state() {
+  await fetch('/api/app/state/ac_power')
+    .then((response) => {
+      if (!response.ok){
+        console.warn('Request failed');
+        console.debug(response.json())
+      }
+      return response.json()
+    }).then((data) => {
+      console.debug(data)
+    })
+}

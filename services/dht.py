@@ -5,6 +5,8 @@ import time
 
 from django.conf import settings
 
+from utilities.temperature import convert_to_fahrenheit
+
 try:
     # noinspection PyPackageRequirements
     import board
@@ -51,10 +53,6 @@ def get_dht_data() -> (float, float, str):
         dht_device.exit()
 
     return temp_c, humidity, error
-
-
-def convert_to_fahrenheit(temp_c: float) -> float:
-    return temp_c * (9 / 5) + 32
 
 
 def main():

@@ -2,7 +2,8 @@ from celery import Celery
 from celery import shared_task
 from django.utils import timezone
 
-from services.dht import get_dht_data, convert_to_fahrenheit
+from services.dht import get_dht_data
+from utilities.temperature import convert_to_fahrenheit
 
 from .models import DhtSensorData
 

@@ -1,10 +1,10 @@
 from django import template
 
-from services import dht
+from utilities.temperature import convert_to_fahrenheit
 
 register = template.Library()
 
 
 @register.filter
-def convert_to_fahrenheit(value):
-    return dht.convert_to_fahrenheit(value)
+def convert_to_fahrenheit(value):  # noqa: F811
+    return convert_to_fahrenheit(value)
