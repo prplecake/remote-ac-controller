@@ -33,9 +33,6 @@ jobs:
   eslint:
     name: ESLint (JavaScript)
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: frontend
     steps:
       - uses: actions/checkout@v3
       - name: Set up Node
@@ -64,9 +61,6 @@ jobs:
   stylelint:
     name: Stylelint (CSS)
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: frontend
     steps:
       - uses: actions/checkout@v3
       - name: Set up Node
