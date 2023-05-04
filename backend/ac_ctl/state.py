@@ -19,7 +19,10 @@ class AcControlState:
 
     def __init__(self):
         self.state = None
-        self.get_or_create_state()
+        try:
+            self.get_or_create_state()
+        except OperationalError:
+            return
 
     def refresh(self):
         self.state = self.get_state()
@@ -56,7 +59,4 @@ class AcControlState:
     ac_unit_on = property(_get_ac_unit_on, _set_ac_unit_on)
 
 
-try:
-    state = AcControlState()
-except OperationalError:
-    state = None
+state = AcControlState()
