@@ -21,7 +21,6 @@ django-celery-results==2.5.0
 django-compressor==4.3.1
 django-cors-headers==3.14.0
 django-extensions==3.2.1
--e git+https://github.com/prplecake/django-node-assets@8b485efec301f0917d02aa16ebd8ce83b8c7796f#egg=django_node_assets
 djangorestframework==3.14.0
 flake8==6.0.0
 gitdb==4.0.10
