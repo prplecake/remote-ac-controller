@@ -33,6 +33,9 @@ jobs:
   eslint:
     name: ESLint (JavaScript)
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: frontend
     steps:
       - uses: actions/checkout@v3
       - name: Set up Node
@@ -52,7 +55,7 @@ jobs:
             ${{ runner.os }}-node-
       - name: Install dependencies
         run: |
-          npm i -g eslint
+          npm install
       - name: Analysing the code with eslint
         if: always()
         run: |
@@ -61,6 +64,9 @@ jobs:
   stylelint:
     name: Stylelint (CSS)
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: frontend
     steps:
       - uses: actions/checkout@v3
       - name: Set up Node
