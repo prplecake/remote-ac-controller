@@ -55,7 +55,7 @@ INSTALLED_APPS = [
 
     'frontend',
     'backend.ac_ctl',
-    'backend.remote_api',
+    'backend.api',
     'backend.remote_web',
     'services',
 ]

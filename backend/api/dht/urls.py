@@ -1,7 +1,7 @@
 from django.urls import path, include
 from rest_framework import routers
-import backend.remote_api.dht.views as dht_views
-import backend.remote_api.dht.views_metrics as metric_views
+import backend.api.dht.views as dht_views
+import backend.api.dht.views_metrics as metric_views
 
 dht_router = routers.DefaultRouter()
 dht_router.register(r'get_data', dht_views.DhtSensorDataViewSet)
