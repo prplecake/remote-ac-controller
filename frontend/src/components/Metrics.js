@@ -8,6 +8,7 @@ import {
   fetchDhtLowHumidity,
   fetchDhtLowTemp,
 } from '../api';
+import {Col, Container, Row} from 'react-bootstrap';
 
 function update_humidity_metric(metric, humidity) {
   let elem = document.getElementById('metrics_' + metric);
@@ -62,35 +63,42 @@ updateMetrics();
 
 export function Metrics() {
   return (
-    <>
+    <Container>
       <h3>Data History</h3>
-      <p>
-        Lowest Temp:
-        <span id="metrics_temp_low"></span>
-      </p>
-      <p>
-        Average Temp:
-        <span id="metrics_temp_avg"></span>
-      </p>
-      <p>
-        Highest Temp:
-        <span id="metrics_temp_high"></span>
-      </p>
-
-      <hr />
-
-      <p>
-        Lowest Humidity:
-        <span id="metrics_humidity_low"></span>
-      </p>
-      <p>
-        Average Humidity:
-        <span id="metrics_humidity_avg"></span>
-      </p>
-      <p>
-        Highest Humidity:
-        <span id="metrics_humidity_high"></span>
-      </p>
-    </>
+      <Row>
+        <Col>
+          <Row>
+            <Col>
+              Lowest Temp:
+            </Col>
+            <Col md="auto" className="text-end">
+              <span id="metrics_temp_low"></span>
+            </Col>
+          </Row>
+          <Row>
+            <Col>Average Temp:</Col>
+            <Col md="auto" className="text-end"><span id="metrics_temp_avg"></span></Col>
+          </Row>
+          <Row>
+            <Col>High Temp:</Col>
+            <Col md="auto" className="text-end"><span id="metrics_temp_high"></span></Col>
+          </Row>
+        </Col>
+        <Col>
+          <Row>
+            <Col>Lowest Humidity:</Col>
+            <Col md="auto" className="text-end"><span id="metrics_humidity_low"></span></Col>
+          </Row>
+          <Row>
+            <Col>Average Humidity:</Col>
+            <Col md="auto" className="text-end"><span id="metrics_humidity_avg"></span></Col>
+          </Row>
+          <Row>
+            <Col>Highest Humidity:</Col>
+            <Col md="auto" className="text-end"><span id="metrics_humidity_high"></span></Col>
+          </Row>
+        </Col>
+      </Row>
+    </Container>
   );
 }

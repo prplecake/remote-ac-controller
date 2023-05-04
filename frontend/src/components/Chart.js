@@ -2,6 +2,7 @@ import { convertToFahrenheit, formatDate } from './remote-ac';
 import React, { useEffect, useState } from 'react';
 import { fetchDhtData } from '../api';
 import { Chart } from 'chart.js/auto';
+import {Container} from 'react-bootstrap';
 
 const CHART_TIMEFRAME_KEY = 'chartTimeframe';
 let nextInterval = getNextInterval();
@@ -107,7 +108,7 @@ export function Graph() {
   }, [chartMade]);
 
   return (
-    <>
+    <Container>
       <input
         type="button"
         onClick={() => setChartTimeframe('14d')}
@@ -131,6 +132,6 @@ export function Graph() {
       <br />
       {isLoading ? <p>Loading...</p> : <></>}
       <canvas id="chart"></canvas>
-    </>
+    </Container>
   );
 }

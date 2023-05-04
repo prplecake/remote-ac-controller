@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {get_ac_power_state, postIrCommand, toggle_ac_power_state} from '../api';
+import {Button, Container, Row} from 'react-bootstrap';
 
 export function RemoteControl() {
   const [acPowerState, setAcPowerState] = useState(undefined)
@@ -48,10 +49,11 @@ export function RemoteControl() {
   function btn_mode_auto_fan() {
     postIrCommand('MODE_AUTO_FAN');
   }
+
   //#endregion buttons
 
   return (
-    <div>
+    <Container>
       <button onClick={btn_power} type="button">
         <i className="bi bi-circle-fill"
            style={acPowerState ? {color: 'green'} : {color: 'red'} }
@@ -76,6 +78,6 @@ export function RemoteControl() {
         <strong>Other</strong>
       </p>
       <input type="button" onClick={btn_toggle_ac_power_state} value="Toggle AC Power (App State)"/>
-    </div>
+    </Container>
   );
 }
