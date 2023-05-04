@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {get_ac_power_state, postIrCommand, toggle_ac_power_state} from '../api';
-import {Button, Container, Row} from 'react-bootstrap';
+import {Container} from 'react-bootstrap';
 
 export function RemoteControl() {
   const [acPowerState, setAcPowerState] = useState(undefined)
