@@ -1,0 +1,6 @@
+{
+  "short_name": "remote-ac-controller",
+  "name": "remote-ac-controller",
+  "start_url": ".",
+  "display": "standalone"
+}
