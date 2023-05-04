@@ -16,7 +16,7 @@ app.conf.beat_schedule = {
     },
     "every five minutes": {
         "task": "temperature_check",
-        "schedule": crontab(minute='*/5')
+        "schedule": crontab(minute='*/15')
     }
 }
 
