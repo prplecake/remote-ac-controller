@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'corsheaders',
     'django_extensions',
     'django_node_assets',
     'rest_framework',
@@ -65,7 +66,15 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
+
+try:
+    CORS_ORIGIN_WHITELIST = env.CORS_ORIGIN_WHITELIST
+except AttributeError:
+    CORS_ORIGIN_WHITELIST = [
+        'http://localhost:3000'
+    ]
 
 ROOT_URLCONF = 'ac_ctl_web.urls'
 
