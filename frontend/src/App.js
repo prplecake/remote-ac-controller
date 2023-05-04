@@ -3,7 +3,7 @@ import {LatestSensorData} from './components/LatestSensorData';
 import {Metrics} from './components/Metrics';
 import React from 'react';
 import {RemoteControl} from './components/RemoteControl';
-import {Graph} from './components/Chart';
+import {Graph} from './components/Graph';
 import {Col, Container, Row} from 'react-bootstrap';
 
 function App() {
