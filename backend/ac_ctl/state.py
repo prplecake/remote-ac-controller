@@ -1,6 +1,6 @@
 import logging
 
-from ac_ctl.models import State
+from backend.ac_ctl.models import State
 
 logger = logging.getLogger(__name__)
 

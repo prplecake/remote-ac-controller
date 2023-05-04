@@ -4,7 +4,7 @@ from django.db.models import Min, Max, Avg
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
-from remote_web.models import DhtSensorData
+from backend.ac_ctl.models import DhtSensorData
 
 logger = logging.getLogger(__name__)
 

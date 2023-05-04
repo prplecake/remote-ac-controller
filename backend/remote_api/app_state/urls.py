@@ -1,6 +1,6 @@
 from django.urls import path, include
 
-import remote_api.app_state.views as state_views
+import backend.remote_api.app_state.views as state_views
 
 app_state_patterns = [
     path('ac_power', state_views.get_ac_power, name='get_ac_power'),

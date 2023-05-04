@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from remote_web.models import DhtSensorData
+from backend.ac_ctl.models import DhtSensorData
 
 
 class DhtSensorDataSerializer(serializers.HyperlinkedModelSerializer):

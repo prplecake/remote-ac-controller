@@ -14,14 +14,13 @@ requirements:
 - nodejs >= v16
 - redis
 
-### backend
-
 ```shell
-cd backend
 # setup virtualenv and install packages
 python -m virtualenv venv
 source ./venv/bin/activate
 pip install -r requirements.txt
+# install node packages
+npm install
 # configure app
 cp ac_ctl_web/env.example.py ac_ctl_web/env.py
 $EDITOR ac_ctl_web/env.py

@@ -1,4 +1,4 @@
-const BASE_API_URL = 'http://localhost:8000';
+const BASE_API_URL = '';
 
 export async function fetchLatestSensorData() {
   return await fetch(BASE_API_URL + '/api/dht/get_current')

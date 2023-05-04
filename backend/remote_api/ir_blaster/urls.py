@@ -1,6 +1,6 @@
 from django.urls import path, include
 
-import remote_api.ir_blaster.views as ir_blaster_views
+import backend.remote_api.ir_blaster.views as ir_blaster_views
 
 ir_blaster_patterns = [
     path('send_once', ir_blaster_views.send_once, name='send_once'),

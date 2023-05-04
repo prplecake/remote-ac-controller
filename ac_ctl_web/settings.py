@@ -10,6 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
+import os
+
 from pathlib import Path
 
 try:
@@ -49,9 +51,12 @@ INSTALLED_APPS = [
     'django_extensions',
     'rest_framework',
 
-    'ac_ctl',
-    'remote_api',
-    'remote_web',
+    'webpack_loader',
+
+    'frontend',
+    'backend.ac_ctl',
+    'backend.remote_api',
+    'backend.remote_web',
     'services',
 ]
 
@@ -138,7 +143,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 STATIC_ROOT = env.STATIC_ROOT
 
 # Default primary key field type
@@ -191,3 +196,11 @@ try:
     TEMP_LOW = env.TEMP_LOW
 except AttributeError:
     print("Please set TEMP_LOW in your env.py")
+
+# Webpack Config
+WEBPACK_LOADER = {
+    'DEFAULT': {
+        'BUNDLE_DIR_NAME': 'frontend/',
+        'STATS_FILE': os.path.join(BASE_DIR, 'webpack-stats.json')
+    }
+}
