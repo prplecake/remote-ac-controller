@@ -191,5 +191,12 @@ LOGGING = {
 
 # Automation Settings
 
-TEMP_HIGH = env.TEMP_HIGH
-TEMP_LOW = env.TEMP_LOW
+try:
+    TEMP_HIGH = env.TEMP_HIGH
+except AttributeError:
+    print("Please set TEMP_HIGH in your env.py")
+    quit(1)
+try:
+    TEMP_LOW = env.TEMP_LOW
+except AttributeError:
+    print("Please set TEMP_LOW in your env.py")
