@@ -1,5 +1,7 @@
 import logging
 
+from django.db import OperationalError
+
 from backend.ac_ctl.models import State
 
 logger = logging.getLogger(__name__)
@@ -54,4 +56,7 @@ class AcControlState:
     ac_unit_on = property(_get_ac_unit_on, _set_ac_unit_on)
 
 
-state = AcControlState()
+try:
+    state = AcControlState()
+except OperationalError:
+    state = None
