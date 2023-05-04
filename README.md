@@ -14,23 +14,34 @@ requirements:
 - nodejs >= v16
 - redis
 
+### backend
+
 ```shell
+cd backend
 # setup virtualenv and install packages
 python -m virtualenv venv
 source ./venv/bin/activate
 pip install -r requirements.txt
-# install npm packages
-python manage.py npminstall
 # configure app
 cp ac_ctl_web/env.example.py ac_ctl_web/env.py
 $EDITOR ac_ctl_web/env.py
 # database migrations
 python manage.py migrate
-# collect static
-python manage.py collectstatic
 # start development server
 honcho start
 ```
+
+### frontend
+
+```shell
+cd frontend
+# install node packages
+npm install
+# start development servet
+npm start
+```
+
+## deploying
 
 For "deployment" it would be better to use a reverse proxy like nginx.
 See [`dist/`][dist].
