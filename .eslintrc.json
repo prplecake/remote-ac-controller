@@ -3,12 +3,19 @@
     "browser": true,
     "es2021": true
   },
-  "extends": ["eslint:recommended"],
+  "extends": ["eslint:recommended", "plugin:react/recommended"],
+  "overrides": [],
   "parserOptions": {
-    "ecmaVersion": 13,
-    "sourceType": "script"
+    "ecmaVersion": "latest",
+    "sourceType": "module"
   },
+  "plugins": ["react"],
   "rules": {
-    "no-unused-vars": "off"
+    "quotes": ["warn", "single"]
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
   }
 }

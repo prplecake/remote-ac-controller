@@ -47,25 +47,36 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'corsheaders',
     'django_extensions',
-    'django_node_assets',
     'rest_framework',
 
-    'ac_ctl',
-    'remote_api',
-    'remote_web',
+    'webpack_loader',
+
+    'frontend',
+    'backend.ac_ctl',
+    'backend.api',
+    'backend.remote_web',
     'services',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+try:
+    CORS_ALLOWED_ORIGINS = env.CORS_ALLOWED_ORIGINS
+except AttributeError:
+    CORS_ALLOWED_ORIGINS = [
+        'http://localhost:3000'
+    ]
 
 ROOT_URLCONF = 'ac_ctl_web.urls'
 
@@ -129,26 +140,11 @@ USE_I18N = True
 
 USE_TZ = True
 
-
-# Node Modules
-# https://pypi.org/project/django-node-assets/
-
-NODE_PACKAGE_JSON = os.path.join(BASE_DIR, 'package.json')
-NODE_MODULES_ROOT = os.path.join(BASE_DIR, 'assets', 'node_modules')
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 STATIC_ROOT = env.STATIC_ROOT
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
-STATICFILES_FINDERS = [
-    'django.contrib.staticfiles.finders.FileSystemFinder',
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    'django_node_assets.finders.NodeModulesFinder',
-]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
@@ -200,3 +196,11 @@ try:
     TEMP_LOW = env.TEMP_LOW
 except AttributeError:
     print("Please set TEMP_LOW in your env.py")
+
+# Webpack Config
+WEBPACK_LOADER = {
+    'DEFAULT': {
+        'BUNDLE_DIR_NAME': 'frontend/',
+        'STATS_FILE': os.path.join(BASE_DIR, 'webpack-stats.json')
+    }
+}

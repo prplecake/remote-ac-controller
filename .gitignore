@@ -7,6 +7,10 @@ env.py
 # Vendor packages
 node_modules/
 
+# Frontend static
+frontend/static/frontend
+webpack-stats.json
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

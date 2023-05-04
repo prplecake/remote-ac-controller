@@ -52,7 +52,7 @@ jobs:
             ${{ runner.os }}-node-
       - name: Install dependencies
         run: |
-          npm i -g eslint
+          npm install
       - name: Analysing the code with eslint
         if: always()
         run: |

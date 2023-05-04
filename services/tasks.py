@@ -1,9 +1,9 @@
 from celery import Celery, shared_task
 from django.conf import settings
 
-from ac_ctl.state import state
+from backend.ac_ctl.state import state
 
-from remote_web.models import DhtSensorData
+from backend.ac_ctl.models import DhtSensorData
 from services.ir_blaster import IRBlaster
 from utilities.temperature import convert_string_to_celcius, \
     convert_to_fahrenheit

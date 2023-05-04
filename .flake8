@@ -1,5 +1,11 @@
 [flake8]
 exclude =
-    migrations,src
+    .git,
+    __pycache__,
+    migrations,
+    frontend,
+    dist,
+    node_modules,
+    venv
 per-file-ignores =
     ac_ctl_web/settings.py:E501
