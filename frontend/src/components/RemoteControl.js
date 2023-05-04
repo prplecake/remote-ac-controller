@@ -1,108 +1,81 @@
-/* eslint-disable no-unused-vars */
-
-import React from 'react';
-
-function btn_power() {
-  send_command('KEY_POWER');
-}
-
-function btn_temp_up() {
-  send_command('TEMP_TIMER_UP');
-}
-
-function btn_temp_dwn() {
-  send_command('TEMP_TIMER_DWN');
-}
-
-function btn_fan_speed_inc() {
-  send_command('FAN_SPEED_INC');
-}
-
-function btn_fan_speed_dec() {
-  send_command('FAN_SPEED_DEC');
-}
-
-function btn_mode_cool() {
-  send_command('MODE_COOL');
-}
-
-function btn_mode_fan_only() {
-  send_command('MODE_FAN_ONLY');
-}
-
-function btn_mode_auto_fan() {
-  send_command('MODE_AUTO_FAN');
-}
-
-function send_command(command) {
-  fetch('/api/ir_blaster/send_once', {
-    method: 'POST',
-    body: JSON.stringify({
-      command: command,
-    }),
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  }).then(function (res) {
-    if (res.ok) {
-      console.log(res);
-      console.log(res.json());
-    } else {
-      console.log('Request failed.');
-      console.log(res.json());
-    }
-  });
-}
-
-async function toggle_ac_power_state() {
-  await fetch('/api/app/state/ac_power/toggle', {
-    method: 'POST',
-  })
-    .then(function (res) {
-      if (!res.ok) {
-        console.warn('Request failed.');
-        console.warn(res.json());
-      }
-      return res.json();
-    })
-    .then(function (data) {
-      console.debug(data);
-    });
-}
-
-async function get_ac_power_state() {
-  await fetch('/api/app/state/ac_power')
-    .then((response) => {
-      if (!response.ok) {
-        console.warn('Request failed');
-        console.debug(response.json());
-      }
-      return response.json();
-    })
-    .then((data) => {
-      console.debug(data);
-    });
-}
+import React, {useEffect, useState} from 'react';
+import {get_ac_power_state, postIrCommand, toggle_ac_power_state} from '../api';
 
 export function RemoteControl() {
+  const [acPowerState, setAcPowerState] = useState(undefined)
+
+  useEffect(() => {
+    get_ac_power_state().then(data => {
+      setAcPowerState(data.power_on);
+    })
+  }, [])
+
+  //#region buttons
+  function btn_toggle_ac_power_state() {
+    toggle_ac_power_state().then(data => setAcPowerState(data.power_on));
+  }
+
+  function btn_power() {
+    postIrCommand('KEY_POWER');
+    // assume it was successfuly, i don't think we're getting any info back from lircd
+    setAcPowerState(!acPowerState);
+  }
+
+  function btn_temp_up() {
+    postIrCommand('TEMP_TIMER_UP');
+  }
+
+  function btn_temp_dwn() {
+    postIrCommand('TEMP_TIMER_DWN');
+  }
+
+  function btn_fan_speed_inc() {
+    postIrCommand('FAN_SPEED_INC');
+  }
+
+  function btn_fan_speed_dec() {
+    postIrCommand('FAN_SPEED_DEC');
+  }
+
+  function btn_mode_cool() {
+    postIrCommand('MODE_COOL');
+  }
+
+  function btn_mode_fan_only() {
+    postIrCommand('MODE_FAN_ONLY');
+  }
+
+  function btn_mode_auto_fan() {
+    postIrCommand('MODE_AUTO_FAN');
+  }
+  //#endregion buttons
+
   return (
     <div>
-      <input type="button" onClick={btn_power} value="Power" />
-      <input type="button" onClick={btn_temp_up} value="Temp +" />
-      <input type="button" onClick={btn_temp_dwn} value="Temp -" />
-      <br />
+      <button onClick={btn_power} type="button">
+        <i className="bi bi-circle-fill"
+           style={acPowerState ? {color: 'green'} : {color: 'red'} }
+        ></i> Power
+      </button>
+      <input type="button" onClick={btn_temp_up} value="Temp +"/>
+      <input type="button" onClick={btn_temp_dwn} value="Temp -"/>
+      <br/>
       <p>
         <strong>Fan Speeds</strong>
       </p>
-      <input type="button" onClick={btn_fan_speed_inc} value="Fan Speed +" />
-      <input type="button" onClick={btn_fan_speed_dec} value="Fan Speed -" />
-      <input type="button" onClick={btn_mode_auto_fan} value="Auto Fan Speed" />
-      <br />
+      <input type="button" onClick={btn_fan_speed_inc} value="Fan Speed +"/>
+      <input type="button" onClick={btn_fan_speed_dec} value="Fan Speed -"/>
+      <input type="button" onClick={btn_mode_auto_fan} value="Auto Fan Speed"/>
+      <br/>
       <p>
         <strong>Modes</strong>
       </p>
-      <input type="button" onClick={btn_mode_cool} value="Cool" />
-      <input type="button" onClick={btn_mode_fan_only} value="Fan Only" />
+      <input type="button" onClick={btn_mode_cool} value="Cool"/>
+      <input type="button" onClick={btn_mode_fan_only} value="Fan Only"/>
+      <p>
+        <strong>Other</strong>
+      </p>
+      <input type="button" onClick={btn_toggle_ac_power_state} value="Toggle AC Power (App State)"/>
     </div>
   );
 }

@@ -61,3 +61,47 @@ export async function fetchDhtLowTemp() {
     (response) => response.json()
   );
 }
+
+export async function toggle_ac_power_state() {
+  return await fetch('/api/app/state/ac_power/toggle', {
+    method: 'POST',
+  })
+    .then(function (res) {
+      if (!res.ok) {
+        console.warn('Request failed.');
+        console.warn(res.json());
+      }
+      return res.json();
+    })
+}
+
+export async function get_ac_power_state() {
+  return await fetch('/api/app/state/ac_power')
+    .then((response) => {
+      if (!response.ok) {
+        console.warn('Request failed');
+        console.debug(response.json());
+      }
+      return response.json();
+    });
+}
+
+export function postIrCommand(command) {
+  fetch('/api/ir_blaster/send_once', {
+    method: 'POST',
+    body: JSON.stringify({
+      command: command,
+    }),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  }).then(function (res) {
+    if (res.ok) {
+      console.log(res);
+      console.log(res.json());
+    } else {
+      console.log('Request failed.');
+      console.log(res.json());
+    }
+  });
+}
