@@ -7,6 +7,7 @@ on:
   push:
     branches: [ "master" ]
     paths:
+      - '.github/workflows/react.yml'
       - 'frontend/**'
       - 'package.json'
       - 'package-lock.json'
@@ -14,6 +15,7 @@ on:
   pull_request:
     branches: [ "master" ]
     paths:
+      - '.github/workflows/react.yml'
       - 'frontend/**'
       - 'package.json'
       - 'package-lock.json'
