@@ -3,11 +3,13 @@ name: Linters
 on:
   push:
     paths-ignore:
+      - '.**'
       - 'README.md'
+      - 'dist/**'
       - 'docs/**'
-      - 'requirements.txt'
-      - 'package.json'
       - 'package-lock.json'
+      - 'package.json'
+      - 'requirements.txt'
 
 jobs:
   flake8:
