@@ -30,17 +30,15 @@ python manage.py migrate
 honcho start
 ```
 
-### frontend
+## deploying
+
+Basically the same but instead of using the development server you'll want 
+to compile the webpack:
 
 ```shell
-cd frontend
-# install node packages
-npm install
-# start development servet
-npm start
+# after npm install
+npm run build
 ```
-
-## deploying
 
 For "deployment" it would be better to use a reverse proxy like nginx.
 See [`dist/`][dist].
