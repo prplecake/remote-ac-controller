@@ -8,10 +8,19 @@ body {
 }
 
 .footer {
-  position: absolute;
+  min-height: 1em;
+}
+
+#version-info {
+  position: fixed;
+  z-index: 1000;
   bottom: 0;
-  height: 40px; /* Set the fixed height of the footer here */
-  line-height: 40px; /* Vertically center the text there */
+  right: 0;
+}
+
+#version-info > a {
+  text-decoration: none;
+  color: unset;
 }
 
 @media (prefers-color-scheme: dark) {

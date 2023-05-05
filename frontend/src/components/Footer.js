@@ -1,24 +1,25 @@
 /*eslint-disable no-undef */
 
 import React from 'react';
-import {Col, Container, Row} from 'react-bootstrap';
+import {Container} from 'react-bootstrap';
 
 function Version() {
   return (
-    <>
-      {COMMIT_HASH}-{COMMIT_BRANCH}
-    </>
+    <div id="version-info">
+      <a href={REPO_URL + '/commit/' + COMMIT_HASH}
+         target='_blank'
+         rel='noreferrer'
+      >{COMMIT_HASH}</a>-{COMMIT_BRANCH}
+    </div>
   );
 }
 
 export function Footer() {
   return (
-    <Container fluid className="footer">
-      <Row>
-        <Col className="text-end">
+    <Container fluid>
+      <footer className="footer">
           <Version/>
-        </Col>
-      </Row>
+      </footer>
     </Container>
   )
 }
