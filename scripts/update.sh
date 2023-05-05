@@ -1,4 +1,4 @@
-#!/usr/bin/env -S bash -e
+#!/usr/bin/env -S zsh -e
 
 (
   cd /home/pi/remote-ac-controller
