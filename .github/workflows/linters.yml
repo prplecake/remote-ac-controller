@@ -3,11 +3,14 @@ name: Linters
 on:
   push:
     paths-ignore:
+      - '.**'
+      - '!.github/workflows/linters.yml'
       - 'README.md'
+      - 'dist/**'
       - 'docs/**'
-      - 'requirements.txt'
-      - 'package.json'
       - 'package-lock.json'
+      - 'package.json'
+      - 'requirements.txt'
 
 jobs:
   flake8:
