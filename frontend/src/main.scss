@@ -24,7 +24,7 @@ body {
 }
 
 .main {
-  padding: 5em 0 0 0;
+  padding: 5em 0 0;
 }
 
 .footer {
@@ -54,6 +54,7 @@ body {
     background-color: black;
     color: lightgray;
   }
+
   .header,
   .footer {
     background-color: black;
@@ -79,9 +80,11 @@ body {
   .header {
     min-height: 5em;
   }
+
   .main {
     padding-bottom: 20px;
   }
+
   .footer {
     min-height: 20px;
   }
