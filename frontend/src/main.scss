@@ -1,0 +1,91 @@
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/variables';
+@import 'bootstrap/scss/mixins';
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.header {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: white;
+}
+
+#current-temp {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  right: 0;
+}
+
+.main {
+  padding: 5em 0 0;
+}
+
+.footer {
+  position: fixed;
+  z-index: 1000;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: white;
+  font-size: 0.8em;
+}
+
+#version-info {
+  position: fixed;
+  z-index: 1000;
+  bottom: 0;
+  right: 0;
+}
+
+#version-info > a {
+  text-decoration: none;
+  color: unset;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: black;
+    color: lightgray;
+  }
+
+  .header,
+  .footer {
+    background-color: black;
+  }
+
+  a {
+    color: #b985ea;
+  }
+
+  .text-muted {
+    color: #757575;
+  }
+
+  button,
+  input[type='button'] {
+    background-color: rgb(22 22 18);
+    border-color: rgb(28 28 28);
+    color: lightgray;
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .header {
+    min-height: 5em;
+  }
+
+  .main {
+    padding-bottom: 20px;
+  }
+
+  .footer {
+    min-height: 20px;
+  }
+}

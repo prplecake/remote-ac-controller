@@ -1,31 +1,29 @@
 import {HistoricalSensorData} from './components/HistoricalSensorData';
-import {LatestSensorData} from './components/LatestSensorData';
 import {Metrics} from './components/Metrics';
 import React from 'react';
 import {RemoteControl} from './components/RemoteControl';
 import {Graph} from './components/Graph';
 import {Col, Container, Row} from 'react-bootstrap';
 import {Footer} from './components/Footer';
+import {Header} from './components/Header';
 
 function App() {
   return (
     <>
-      <Container>
+      <Header/>
+      <Container className='main'>
         <Row>
-          <Col>
-            <Row>
-              <LatestSensorData/>
-            </Row>
-            <Row>
-              <HistoricalSensorData/>
-            </Row>
-          </Col>
-          <Col>
+          <Col className='order-lg-2'>
             <RemoteControl/>
             <br/>
             <Graph/>
             <br/>
             <Metrics/>
+          </Col>
+          <Col className='order-lg-1'>
+            <Row>
+              <HistoricalSensorData/>
+            </Row>
           </Col>
         </Row>
       </Container>

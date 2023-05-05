@@ -13,6 +13,8 @@ const commitBranch = require('child_process')
 //   .execSync('git describe --tags --abbrev=0')
 //   .toString().trim();
 
+const repoUrl = 'https://github.com/prplecake/remote-ac-controller';
+
 module.exports = {
   entry: {
     frontend: './frontend/src/index.js',
@@ -32,6 +34,7 @@ module.exports = {
       'COMMIT_HASH': JSON.stringify(commitHash),
       'COMMIT_BRANCH': JSON.stringify(commitBranch),
       // 'COMMIT_TAG': JSON.stringify(commitTag),
+      'REPO_URL': JSON.stringify(repoUrl)
     }),
   ],
   module: {
@@ -41,8 +44,8 @@ module.exports = {
         use: ['babel-loader'],
       },
       {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
+        test: /\.s?[ac]ss$/,
+        use: ['style-loader', 'css-loader', 'sass-loader'],
       },
     ],
   },
