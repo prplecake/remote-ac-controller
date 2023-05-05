@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { fetchLatestSensorData } from '../api';
+import {convertToFahrenheit} from './remote-ac';
 
 export function LatestSensorData() {
   const [data, setData] = useState(undefined);
@@ -15,7 +16,6 @@ export function LatestSensorData() {
     }
   }, [data]);
 
-  let temp_f = 0;
   return (
     <>
       {isLoading ? (
@@ -23,7 +23,7 @@ export function LatestSensorData() {
       ) : (
         <>
           <p>
-            Temp: {temp_f}&deg;F ({data.temp_c}&deg;C)
+            Temp: {convertToFahrenheit(data.temp_c)}&deg;F ({data.temp_c}&deg;C)
           </p>
           <p>Humidity: {data.humidity}%</p>
         </>
