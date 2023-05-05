@@ -1,20 +1,25 @@
-import React, { useEffect, useState } from 'react';
-import { fetchHistoricalSensorData } from '../api';
-import { convertToFahrenheit, formatDate } from './remote-ac';
+import React, {useEffect, useState} from 'react';
+import {fetchHistoricalSensorData} from '../api';
+import {convertToFahrenheit, formatDate} from './remote-ac';
+import {useRefresh} from '../hooks/useRefresh';
 
 export function HistoricalSensorData() {
   const [data, setData] = useState(undefined);
   const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
+  const fetchData = () => {
     fetchHistoricalSensorData().then((result) => setData(result));
-  }, []);
+  }
 
   useEffect(() => {
     if (data !== undefined) {
       setIsLoading(false);
+    } else {
+      fetchData();
     }
   }, [data]);
+
+  useRefresh(fetchData);
 
   return (
     <>

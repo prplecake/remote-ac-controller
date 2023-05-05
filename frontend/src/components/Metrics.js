@@ -9,6 +9,7 @@ import {
   fetchDhtLowTemp,
 } from '../api';
 import {Col, Container, Row} from 'react-bootstrap';
+import {useRefresh} from '../hooks/useRefresh';
 
 function update_humidity_metric(metric, humidity) {
   let elem = document.getElementById('metrics_' + metric);
@@ -62,6 +63,9 @@ function updateMetrics() {
 updateMetrics();
 
 export function Metrics() {
+
+  useRefresh(updateMetrics)
+
   return (
     <Container>
       <h3>Data History</h3>

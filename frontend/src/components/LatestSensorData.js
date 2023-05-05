@@ -1,21 +1,26 @@
-import React, { useEffect, useState } from 'react';
-import { fetchLatestSensorData } from '../api';
+import React, {useEffect, useState} from 'react';
+import {fetchLatestSensorData} from '../api';
 import {convertToFahrenheit} from './remote-ac';
 import {Col, Row} from 'react-bootstrap';
+import {useRefresh} from '../hooks/useRefresh';
 
 export function LatestSensorData() {
   const [data, setData] = useState(undefined);
   const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
+  const fetchData = () => {
     fetchLatestSensorData().then((result) => setData(result));
-  }, []);
+  }
 
   useEffect(() => {
     if (data !== undefined) {
       setIsLoading(false);
+    } else {
+      fetchData();
     }
   }, [data]);
+
+  useRefresh(fetchData)
 
   return (
     <>
@@ -25,7 +30,7 @@ export function LatestSensorData() {
         <div id='current-temp'>
           <Row>
             <Col>
-            Temp:
+              Temp:
             </Col>
             <Col>{convertToFahrenheit(data.temp_c)}&deg;F ({data.temp_c}&deg;C)</Col>
           </Row>
