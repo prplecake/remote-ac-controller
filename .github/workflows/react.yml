@@ -58,7 +58,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
-          name: remote-ac-controller-webpack
+          name: remote-ac-controller-webpack (${{ matrix.node-version }})
           path: |
             frontend/static/
             webpack-stats.json
