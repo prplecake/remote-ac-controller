@@ -15,6 +15,7 @@
     "react-scripts": "5.0.1",
     "react-strap": "^0.0.1",
     "web-vitals": "^2.1.4",
+    "webpack-bundle-tracker": "^1.8.1",
     "webpack-cli": "^5.0.2"
   },
   "scripts": {
@@ -60,7 +61,6 @@
     "style-loader": "^3.3.2",
     "stylelint": "^15.6.1",
     "stylelint-config-standard": "^33.0.0",
-    "webpack": "^5.82.0",
-    "webpack-bundle-tracker": "^1.8.1"
+    "webpack": "^5.82.0"
   }
 }
