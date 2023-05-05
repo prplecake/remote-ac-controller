@@ -6,7 +6,6 @@ class State(models.Model):
 
     class Meta:
         db_table = 'app_state'
-        managed = True
 
 
 class DhtSensorData(models.Model):
