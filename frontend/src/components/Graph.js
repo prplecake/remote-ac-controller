@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { fetchDhtData } from '../api';
 import { Chart } from 'chart.js/auto';
 import {Container} from 'react-bootstrap';
+import {useRefresh} from '../hooks/useRefresh';
 
 const CHART_TIMEFRAME_KEY = 'chartTimeframe';
 let nextInterval = getNextInterval();
@@ -95,18 +96,22 @@ export function Graph() {
   const [isLoading, setIsLoading] = useState(true);
   const [chartMade, setChartMade] = useState(false);
 
-  useEffect(() => {
+  const fetchData = () => {
     fetchDhtData(localStorage.getItem(CHART_TIMEFRAME_KEY)).then((data) => {
       makeChart(data);
       setChartMade(true);
     });
-  }, []);
+  }
 
   useEffect(() => {
     if (chartMade) {
       setIsLoading(false);
+    } else {
+      fetchData();
     }
   }, [chartMade]);
+
+  useRefresh(fetchData);
 
   return (
     <Container>
