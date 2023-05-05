@@ -4,6 +4,7 @@ on:
   push:
     paths-ignore:
       - '.**'
+      - '!.github/workflows/linters.yml'
       - 'README.md'
       - 'dist/**'
       - 'docs/**'
