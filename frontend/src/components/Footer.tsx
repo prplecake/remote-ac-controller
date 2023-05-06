@@ -3,17 +3,17 @@
 import React from 'react';
 import {Container} from 'react-bootstrap';
 
-const repoUrl = process.env.REPO_URL;
-const hash = process.env.COMMIT_HASH;
-const branch = process.env.COMMIT_BRANCH;
+declare var REPO_URL: string | undefined;
+declare var COMMIT_HASH: string | undefined;
+declare var COMMIT_BRANCH: string | undefined;
 
 function Version() {
   return (
     <div id="version-info">
-      <a href={repoUrl + '/commit/' + hash}
+      <a href={REPO_URL + '/commit/' + COMMIT_HASH}
          target='_blank'
          rel='noreferrer'
-      >{hash}</a>-{branch}
+      >{COMMIT_HASH}</a>-{COMMIT_BRANCH}
     </div>
   );
 }
