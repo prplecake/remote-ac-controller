@@ -27,20 +27,13 @@ defaults:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [16.x, 18.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
     steps:
       - uses: actions/checkout@v3
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 16
       - name: Get npm cache dir
         id: npm-cache-dir
         shell: bash
@@ -58,7 +51,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
-          name: remote-ac-controller-webpack (${{ matrix.node-version }})
+          name: remote-ac-controller-webpack
           path: |
             frontend/static/
             webpack-stats.json
