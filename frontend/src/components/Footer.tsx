@@ -3,9 +3,9 @@
 import React from 'react';
 import {Container} from 'react-bootstrap';
 
-declare var REPO_URL: string | undefined;
-declare var COMMIT_HASH: string | undefined;
-declare var COMMIT_BRANCH: string | undefined;
+declare const REPO_URL: string | undefined;
+declare const COMMIT_HASH: string | undefined;
+declare const COMMIT_BRANCH: string | undefined;
 
 function Version() {
   return (
