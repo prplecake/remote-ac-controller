@@ -33,7 +33,7 @@
     "typescript": "^5.0.4"
   },
   "scripts": {
-    "test:lint:js": "eslint frontend/src/**/*.js",
+    "test:lint:js": "eslint frontend/src/**/*.{ts,tsx}",
     "test:lint:sass": "stylelint \"frontend/src/**/*.{css,scss}\" && prettier --check \"frontend/src/**/*.{css,scss}\"",
     "format": "prettier --write .",
     "format-check": "prettier --check .",
