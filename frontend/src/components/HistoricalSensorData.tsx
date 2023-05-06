@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {fetchHistoricalSensorData} from '../api';
 import {convertToFahrenheit, formatDate} from './remote-ac';
 import {useRefresh} from '../hooks/useRefresh';
-import {DhtSensorData} from "../types/DhtSensorData";
+import {DhtSensorData} from '../types/DhtSensorData';
 
 export function HistoricalSensorData() {
   const [data, setData] = useState<Array<DhtSensorData>>([]);

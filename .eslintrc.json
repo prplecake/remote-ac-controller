@@ -16,7 +16,9 @@
   },
   "plugins": ["react"],
   "rules": {
-    "quotes": ["warn", "single"]
+    "quotes": ["warn", "single"],
+    "@typescript-eslint/no-non-null-assertion": "off"
+
   },
   "settings": {
     "react": {

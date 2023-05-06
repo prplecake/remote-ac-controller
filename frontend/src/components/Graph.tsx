@@ -4,7 +4,7 @@ import { fetchDhtData } from '../api';
 import {Chart, ChartItem} from 'chart.js/auto';
 import {Container} from 'react-bootstrap';
 import {useRefresh} from '../hooks/useRefresh';
-import {DhtSensorData} from "../types/DhtSensorData";
+import {DhtSensorData} from '../types/DhtSensorData';
 
 const CHART_TIMEFRAME_KEY = 'chartTimeframe';
 let nextInterval = getNextInterval();
@@ -21,8 +21,8 @@ if (localStorage.getItem(CHART_TIMEFRAME_KEY) == null) {
 }
 
 function getNextInterval() {
-  let now = new Date();
-  let millisTillNext =
+  const now = new Date();
+  const millisTillNext =
     new Date(
       now.getFullYear(),
       now.getMonth(),

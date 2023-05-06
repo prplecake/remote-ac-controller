@@ -3,7 +3,7 @@ import {fetchLatestSensorData} from '../api';
 import {convertToFahrenheit} from './remote-ac';
 import {Col, Row} from 'react-bootstrap';
 import {useRefresh} from '../hooks/useRefresh';
-import {DhtSensorData} from "../types/DhtSensorData";
+import {DhtSensorData} from '../types/DhtSensorData';
 
 export function LatestSensorData() {
   const [data, setData] = useState<DhtSensorData | null>(null);
