@@ -20,7 +20,7 @@ export async function fetchHistoricalSensorData() {
   );
 }
 
-export async function fetchDhtData(limit) {
+export async function fetchDhtData(limit: string) {
   return await fetch(BASE_API_URL + '/api/dht/graph_data/?limit=' + limit).then(
     (response) => response.json()
   );
@@ -86,7 +86,7 @@ export async function get_ac_power_state() {
     });
 }
 
-export function postIrCommand(command) {
+export function postIrCommand(command: string) {
   fetch('/api/ir_blaster/send_once', {
     method: 'POST',
     body: JSON.stringify({

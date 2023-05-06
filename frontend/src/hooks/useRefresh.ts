@@ -3,7 +3,7 @@ import {useEffect} from 'react';
 
 const DEFAULT_REFRESH_INTERVAL =  minuteInMiliseconds * 5;
 
-export function useRefresh(func, int = DEFAULT_REFRESH_INTERVAL) {
+export function useRefresh(func: Function, int: number = DEFAULT_REFRESH_INTERVAL) {
   useEffect(() => {
     const interval = setInterval(func, int);
     return () => clearInterval(interval);

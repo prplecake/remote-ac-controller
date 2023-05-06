@@ -3,9 +3,10 @@ import {fetchLatestSensorData} from '../api';
 import {convertToFahrenheit} from './remote-ac';
 import {Col, Row} from 'react-bootstrap';
 import {useRefresh} from '../hooks/useRefresh';
+import {DhtSensorData} from "../types/DhtSensorData";
 
 export function LatestSensorData() {
-  const [data, setData] = useState(undefined);
+  const [data, setData] = useState<DhtSensorData | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
   const fetchData = () => {
@@ -13,7 +14,7 @@ export function LatestSensorData() {
   }
 
   useEffect(() => {
-    if (data !== undefined) {
+    if (data !== null) {
       setIsLoading(false);
     } else {
       fetchData();
@@ -32,11 +33,11 @@ export function LatestSensorData() {
             <Col>
               Temp:
             </Col>
-            <Col>{convertToFahrenheit(data.temp_c)}&deg;F ({data.temp_c}&deg;C)</Col>
+            <Col>{convertToFahrenheit(data!.temp_c)}&deg;F ({data!.temp_c}&deg;C)</Col>
           </Row>
           <Row>
             <Col>Humidity:</Col>
-            <Col>{data.humidity}%</Col>
+            <Col>{data!.humidity}%</Col>
           </Row>
         </div>
       )}
