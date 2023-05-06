@@ -14,11 +14,8 @@ def toggle_ac_power(request):
                 "power_on": state.ac_unit_on
             },
             status=status.HTTP_200_OK)
-    except Exception as ex:
+    except Exception:
         return Response(
-            data={
-                "error": str(ex)
-            },
             status=status.HTTP_503_SERVICE_UNAVAILABLE)
 
 
@@ -30,10 +27,7 @@ def get_ac_power(request):
                 "power_on": state.ac_unit_on
             },
             status=status.HTTP_200_OK)
-    except Exception as ex:
+    except Exception:
         return Response(
-            data={
-                "error": str(ex)
-            },
             status=status.HTTP_503_SERVICE_UNAVAILABLE
         )

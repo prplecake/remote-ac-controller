@@ -1,3 +1,4 @@
+import inspect
 import os
 
 REMOTE_NAME = 'ac-remote'
@@ -19,15 +20,30 @@ class IRBlaster:
         MODE_AUTO_FAN = "MODE_AUTO_FAN"
         MODE_TIMER = "MODE_TIMER"
 
+    ALLOWED_CMDS = [x[1] for x in inspect.getmembers(RemoteCommands)
+                    if not x[0].startswith("_") and not inspect.ismethod(x)]
+
     @staticmethod
     def send_once(cmd: str) -> bool:
+        if cmd not in IRBlaster.ALLOWED_CMDS:
+            raise IRBlaster.InvalidCommandException()
         return not bool(os.system(f'irsend SEND_ONCE {REMOTE_NAME} {cmd}'))
 
     @staticmethod
     def send_many(cmd: str, duration: int) -> bool:
+        if cmd not in IRBlaster.ALLOWED_CMDS:
+            raise IRBlaster.InvalidCommandException()
         return not bool(os.system(f'irsend SEND_START {REMOTE_NAME} {cmd};'
                                   f'sleep {duration};'
                                   f'irsend SEND_STOP {REMOTE_NAME} {cmd}'))
+
+    class InvalidCommandException(Exception):
+        """Raised when provided command not in allowed list"""
+
+        def __init__(self):
+            message = "Provided command not in allowed commands list. See " \
+                      "IRBlaster.RemoteCommands"
+            super().__init__(message)
 
 
 def main():
