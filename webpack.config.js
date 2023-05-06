@@ -17,7 +17,7 @@ const repoUrl = 'https://github.com/prplecake/remote-ac-controller';
 
 module.exports = {
   entry: {
-    frontend: './frontend/src/index.js',
+    frontend: './frontend/src/index.tsx',
   },
   output: {
     path: path.resolve('./frontend/static/frontend/'),
@@ -37,8 +37,15 @@ module.exports = {
       'REPO_URL': JSON.stringify(repoUrl)
     }),
   ],
+  resolve: {
+    extensions: ['.ts', '.tsx', '.js'],
+  },
   module: {
     rules: [
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+      },
       {
         test: /\.js$/,
         use: ['babel-loader'],

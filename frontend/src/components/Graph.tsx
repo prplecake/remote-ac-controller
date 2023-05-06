@@ -1,14 +1,15 @@
 import { convertToFahrenheit, formatDate } from './remote-ac';
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import { fetchDhtData } from '../api';
-import { Chart } from 'chart.js/auto';
+import {Chart, ChartItem} from 'chart.js/auto';
 import {Container} from 'react-bootstrap';
 import {useRefresh} from '../hooks/useRefresh';
+import {DhtSensorData} from '../types/DhtSensorData';
 
 const CHART_TIMEFRAME_KEY = 'chartTimeframe';
 let nextInterval = getNextInterval();
 
-function setChartTimeframe(tf) {
+function setChartTimeframe(tf: string) {
   localStorage.setItem(CHART_TIMEFRAME_KEY, tf);
   updateChart();
 }
@@ -20,8 +21,8 @@ if (localStorage.getItem(CHART_TIMEFRAME_KEY) == null) {
 }
 
 function getNextInterval() {
-  let now = new Date();
-  let millisTillNext =
+  const now = new Date();
+  const millisTillNext =
     new Date(
       now.getFullYear(),
       now.getMonth(),
@@ -30,7 +31,7 @@ function getNextInterval() {
       0,
       5,
       0
-    ) - now;
+    ).getTime() - now.getTime();
   if (millisTillNext < 0) {
     getNextInterval();
   }
@@ -41,25 +42,25 @@ function getNextInterval() {
 setInterval(updateChart, nextInterval);
 
 function updateChart() {
-  fetchDhtData(localStorage.getItem(CHART_TIMEFRAME_KEY))
+  fetchDhtData(localStorage.getItem(CHART_TIMEFRAME_KEY) as string)
     .then(data => makeChart(data));
   nextInterval = getNextInterval();
 }
 
-let chart;
+let chart: Chart;
 
-function makeChart(data) {
+function makeChart(data: Array<DhtSensorData>) {
   if (chart) {
     chart.destroy();
   }
-  chart = new Chart(document.getElementById('chart'), {
+  chart = new Chart(document.getElementById('chart') as ChartItem, {
     type: 'line',
     data: {
       labels: data.map((row) => formatDate(new Date(row.date))),
       datasets: [
         {
           label: 'Temp (F)',
-          data: data.map((row) => convertToFahrenheit(row.temp_c)),
+          data: data.map((row) => convertToFahrenheit(row.temp_c) as unknown as number),
           yAxisID: 'y',
         },
         {
@@ -97,7 +98,7 @@ export function Graph() {
   const [chartMade, setChartMade] = useState(false);
 
   const fetchData = () => {
-    fetchDhtData(localStorage.getItem(CHART_TIMEFRAME_KEY)).then((data) => {
+    fetchDhtData(localStorage.getItem(CHART_TIMEFRAME_KEY) as string).then((data) => {
       makeChart(data);
       setChartMade(true);
     });

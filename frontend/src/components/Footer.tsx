@@ -3,6 +3,10 @@
 import React from 'react';
 import {Container} from 'react-bootstrap';
 
+declare const REPO_URL: string | undefined;
+declare const COMMIT_HASH: string | undefined;
+declare const COMMIT_BRANCH: string | undefined;
+
 function Version() {
   return (
     <div id="version-info">

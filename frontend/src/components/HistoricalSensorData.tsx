@@ -2,9 +2,10 @@ import React, {useEffect, useState} from 'react';
 import {fetchHistoricalSensorData} from '../api';
 import {convertToFahrenheit, formatDate} from './remote-ac';
 import {useRefresh} from '../hooks/useRefresh';
+import {DhtSensorData} from '../types/DhtSensorData';
 
 export function HistoricalSensorData() {
-  const [data, setData] = useState(undefined);
+  const [data, setData] = useState<Array<DhtSensorData> | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
   const fetchData = () => {
@@ -12,7 +13,7 @@ export function HistoricalSensorData() {
   }
 
   useEffect(() => {
-    if (data !== undefined) {
+    if (data !== null) {
       setIsLoading(false);
     } else {
       fetchData();
@@ -26,7 +27,7 @@ export function HistoricalSensorData() {
       {isLoading ? (
         <p>Loading historical data...</p>
       ) : (
-        data.map((item, i) => (
+        data!.map((item, i) => (
           <p key={i}>
             {formatDate(new Date(item.date))} ::{' '}
             {convertToFahrenheit(item.temp_c)}&deg;F ({item.temp_c}&deg;C)

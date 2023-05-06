@@ -11,23 +11,23 @@ import {
 import {Col, Container, Row} from 'react-bootstrap';
 import {useRefresh} from '../hooks/useRefresh';
 
-function update_humidity_metric(metric, humidity) {
-  let elem = document.getElementById('metrics_' + metric);
-  humidity = humidity.toFixed(2);
+function update_humidity_metric(metric: string, value: number) {
+  const elem = document.getElementById('metrics_' + metric);
+  const humidity = value.toFixed(2);
   let htmlText = ' ';
-  let htmlString = humidity + '&percnt;';
+  const htmlString = humidity + '&percnt;';
   htmlText += htmlString;
-  elem.innerHTML = htmlText;
+  elem!.innerHTML = htmlText;
 }
 
-function update_temp_metric(metric, temp_c) {
-  let elem = document.getElementById('metrics_' + metric);
+function update_temp_metric(metric: string, value: number) {
+  const elem = document.getElementById('metrics_' + metric);
   let htmlText = ' ';
-  let temp_f = convertToFahrenheit(temp_c);
-  temp_c = temp_c.toFixed(0);
-  let htmlString = temp_f + '&deg;F (' + temp_c + '&deg;C)';
+  const temp_f = convertToFahrenheit(value);
+  const temp_c = value.toFixed(0);
+  const htmlString = temp_f + '&deg;F (' + temp_c + '&deg;C)';
   htmlText += htmlString;
-  elem.innerHTML = htmlText;
+  elem!.innerHTML = htmlText;
 }
 
 function update_temps() {

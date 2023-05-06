@@ -3,7 +3,7 @@ import {get_ac_power_state, postIrCommand, toggle_ac_power_state} from '../api';
 import {Container} from 'react-bootstrap';
 
 export function RemoteControl() {
-  const [acPowerState, setAcPowerState] = useState(undefined)
+  const [acPowerState, setAcPowerState] = useState<boolean>(false)
 
   useEffect(() => {
     get_ac_power_state().then(data => {
@@ -18,7 +18,7 @@ export function RemoteControl() {
 
   function btn_power() {
     postIrCommand('KEY_POWER');
-    // assume it was successfuly, i don't think we're getting any info back from lircd
+    // assume it was successfuly, I don't think we're getting any info back from lircd
     setAcPowerState(!acPowerState);
   }
 
