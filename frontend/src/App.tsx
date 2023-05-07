@@ -3,7 +3,7 @@ import {Metrics} from './components/Metrics';
 import React from 'react';
 import {RemoteControl} from './components/RemoteControl';
 import {Graph} from './components/Graph';
-import {Col, Container, Row} from 'react-bootstrap';
+import {Col, Container, Row} from 'reactstrap';
 import {Footer} from './components/Footer';
 import {Header} from './components/Header';
 

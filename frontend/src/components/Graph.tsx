@@ -2,7 +2,7 @@ import { convertToFahrenheit, formatDate } from './remote-ac';
 import React, {useEffect, useState} from 'react';
 import { fetchDhtData } from '../api';
 import {Chart, ChartItem} from 'chart.js/auto';
-import {Container} from 'react-bootstrap';
+import {Container} from 'reactstrap';
 import {useRefresh} from '../hooks/useRefresh';
 import {DhtSensorData} from '../types/DhtSensorData';
 

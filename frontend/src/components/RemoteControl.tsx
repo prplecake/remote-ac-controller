@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {get_ac_power_state, postIrCommand, toggle_ac_power_state} from '../api';
-import {Container} from 'react-bootstrap';
+import {Container} from 'reactstrap';
 
 export function RemoteControl() {
   const [acPowerState, setAcPowerState] = useState<boolean>(false)
