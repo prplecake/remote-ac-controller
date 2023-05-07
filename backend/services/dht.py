@@ -5,7 +5,7 @@ import time
 
 from django.conf import settings
 
-from utilities.temperature import convert_to_fahrenheit
+from backend.utilities.temperature import convert_to_fahrenheit
 
 try:
     # noinspection PyPackageRequirements

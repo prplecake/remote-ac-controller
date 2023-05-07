@@ -1,6 +1,6 @@
 from django.test import TestCase
 
-from services.ir_blaster import IRBlaster
+from backend.services.ir_blaster import IRBlaster
 
 
 class ServicesTests(TestCase):
