@@ -1,4 +1,4 @@
-import { convertToFahrenheit, formatDate } from './remote-ac';
+import {convertToFahrenheit, formatDate, minuteInMiliseconds} from './remote-ac';
 import React, {useEffect, useState} from 'react';
 import { fetchDhtData } from '../api';
 import {Chart, ChartItem} from 'chart.js/auto';
@@ -112,7 +112,7 @@ export function Graph() {
     }
   }, [chartMade]);
 
-  useRefresh(fetchData);
+  useRefresh(fetchData, minuteInMiliseconds * 60);
 
   return (
     <Container>
