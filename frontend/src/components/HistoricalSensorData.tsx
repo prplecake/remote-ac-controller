@@ -53,14 +53,24 @@ export function HistoricalSensorData() {
           <Row>
             {/* Earlier/Next button */}
             <Col>
+              {page < (Math.ceil(data?.count! / 20)) ? (
+                <>
+                <Button
+                  color={'secondary'}
+                  onClick={() => setPage(Math.ceil(data?.count! / 20))}
+                  size={'sm'}
+                  >
+                  <i className="bi bi-chevron-double-left"></i>
+                </Button>&nbsp;
+                </>
+              ):null}
               {data?.next !== null ? (
                 <Button
                   color='secondary'
                   onClick={() => setPage(page + 1)}
                   size={'sm'}
                 >
-                  <i className="bi bi-arrow-left"></i>&nbsp;
-                  Earlier data
+                  <i className="bi bi-chevron-left"></i>
                 </Button>
               ) : null}
             </Col>
@@ -72,10 +82,20 @@ export function HistoricalSensorData() {
                   onClick={() => setPage(page - 1)}
                   size={'sm'}
                 >
-                  Later data
-                  &nbsp;<i className="bi bi-arrow-right"></i>
+                  <i className="bi bi-chevron-right"></i>
                 </Button>
               ) : null}
+              {page > 2 ? (
+               <>
+               &nbsp;<Button
+                  color={'secondary'}
+                  onClick={() => setPage(1)}
+                  size={'sm'}
+                  >
+                  <i className="bi bi-chevron-double-right"></i>
+                </Button>
+               </>
+              ):null}
             </Col>
           </Row>
         </>
