@@ -5,6 +5,11 @@ on:
     paths-ignore:
       - '.**'
       - '!.github/workflows/linters.yml'
+      - '!.flake8'
+      - '!.eslintrc.json'
+      - '!.stylelintrc.json'
+      - '!.prettierrc.json'
+      - '!.prettierignore'
       - 'README.md'
       - 'dist/**'
       - 'docs/**'
