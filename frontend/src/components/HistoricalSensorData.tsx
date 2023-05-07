@@ -3,7 +3,7 @@ import {fetchHistoricalSensorData} from '../api';
 import {convertToFahrenheit, formatDate} from './remote-ac';
 import {useRefresh} from '../hooks/useRefresh';
 import {DhtSensorData} from '../types/DhtSensorData';
-import {Button, Col, Row} from "reactstrap";
+import {Button, Col, Row} from 'reactstrap';
 
 interface HistoricalDataApiResponse {
   count: number | null,
