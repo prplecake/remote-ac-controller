@@ -25,7 +25,7 @@ export async function fetchHistoricalSensorData(page?: number) {
 }
 
 export async function fetchDhtData(limit: string) {
-  return await fetch(BASE_API_URL + '/api/dht/graph_data/?limit=' + limit).then(
+  return await fetch(BASE_API_URL + '/api/dht/graph_data?limit=' + limit).then(
     (response) => response.json()
   );
 }
