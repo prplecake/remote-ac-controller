@@ -1,7 +1,7 @@
 /*eslint-disable no-undef */
 
 import React from 'react';
-import {Container} from 'react-bootstrap';
+import {Container} from 'reactstrap';
 
 declare const REPO_URL: string | undefined;
 declare const COMMIT_HASH: string | undefined;

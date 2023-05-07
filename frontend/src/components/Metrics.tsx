@@ -8,7 +8,7 @@ import {
   fetchDhtLowHumidity,
   fetchDhtLowTemp,
 } from '../api';
-import {Col, Container, Row} from 'react-bootstrap';
+import {Col, Container, Row} from 'reactstrap';
 import {useRefresh} from '../hooks/useRefresh';
 
 function update_humidity_metric(metric: string, value: number) {
