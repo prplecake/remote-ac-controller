@@ -21,6 +21,10 @@ on:
       - 'package-lock.json'
       - 'webpack.config.js'
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 defaults:
   run:
     working-directory: frontend
