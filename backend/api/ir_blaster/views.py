@@ -2,7 +2,7 @@ from django.http import HttpResponseBadRequest
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
-from services.ir_blaster import IRBlaster
+from backend.services.ir_blaster import IRBlaster
 
 
 @api_view(['post'])
