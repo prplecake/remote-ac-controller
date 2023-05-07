@@ -3,7 +3,7 @@ from rest_framework import routers
 import backend.api.dht.views as dht_views
 import backend.api.dht.views_metrics as metric_views
 
-dht_router = routers.DefaultRouter()
+dht_router = routers.DefaultRouter(trailing_slash=False)
 dht_router.register(r'get_data', dht_views.DhtSensorDataViewSet)
 dht_router.register(r'graph_data',
                     dht_views.DhtSensorGraphDataViewSet, 'graph-data')
