@@ -8,6 +8,7 @@ from rest_framework.response import Response
 from backend.ac_ctl.models import DhtSensorData
 from services.dht import get_dht_data
 from .serializers import DhtSensorDataSerializer
+from ..pagination import HistoricalDataSetPagination
 
 logger = logging.getLogger(__name__)
 
@@ -42,20 +43,12 @@ class DhtSensorGraphDataViewSet(viewsets.ModelViewSet):
 
 
 class DhtSensorHistoricalDataViewSet(viewsets.ModelViewSet):
-    serializer_class = DhtSensorDataSerializer
     http_method_names = ['get']
+    pagination_class = HistoricalDataSetPagination
+    serializer_class = DhtSensorDataSerializer
 
     def get_queryset(self):
-        logger.info('hello from the logger')
-        logger.debug(self.request.query_params)
-        limit_param = self.request.query_params.get('limit')
-        if limit_param is not None:
-            limit = limit_param
-        else:
-            limit = 20
-        logger.debug(f'limit: {limit}')
-        queryset = DhtSensorData.objects.order_by('-date')[:limit]
-        # queryset = list(reversed(queryset))
+        queryset = DhtSensorData.objects.order_by('-date')
         return queryset
 
 
