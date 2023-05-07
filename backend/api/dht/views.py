@@ -6,7 +6,7 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
 from backend.ac_ctl.models import DhtSensorData
-from services.dht import get_dht_data
+from backend.services.dht import get_dht_data
 from .serializers import DhtSensorDataSerializer
 
 logger = logging.getLogger(__name__)

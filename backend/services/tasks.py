@@ -4,8 +4,8 @@ from django.conf import settings
 from backend.ac_ctl.state import state
 
 from backend.ac_ctl.models import DhtSensorData
-from services.ir_blaster import IRBlaster
-from utilities.temperature import convert_string_to_celcius, \
+from backend.services.ir_blaster import IRBlaster
+from backend.utilities.temperature import convert_string_to_celcius, \
     convert_to_fahrenheit
 
 app = Celery()

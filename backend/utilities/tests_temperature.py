@@ -1,6 +1,6 @@
 from django.test import TestCase
 
-from utilities.temperature import (
+from backend.utilities.temperature import (
     convert_to_celcius,
     convert_string_to_celcius,
     convert_to_fahrenheit
