@@ -6,10 +6,12 @@ import {Graph} from './components/Graph';
 import {Col, Container, Row} from 'reactstrap';
 import {Footer} from './components/Footer';
 import {Header} from './components/Header';
+import Theme, {ThemeContext} from "./Theme";
 
 function App() {
+
   return (
-    <>
+    <Theme>
       <Header/>
       <Container className='main'>
         <Row>
@@ -28,7 +30,7 @@ function App() {
         </Row>
       </Container>
       <Footer/>
-    </>
+    </Theme>
   );
 }
 
