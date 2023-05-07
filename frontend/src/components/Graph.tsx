@@ -1,17 +1,22 @@
 import {convertToFahrenheit, formatDate, minuteInMiliseconds} from './remote-ac';
 import React, {useEffect, useState} from 'react';
-import { fetchDhtData } from '../api';
+import {fetchDhtData} from '../api';
 import {Chart, ChartItem} from 'chart.js/auto';
-import {Container} from 'reactstrap';
+import {Col, Container, Row} from 'reactstrap';
 import {useRefresh} from '../hooks/useRefresh';
 import {DhtSensorData} from '../types/DhtSensorData';
 
 const CHART_TIMEFRAME_KEY = 'chartTimeframe';
+const CHART_LAST_TIMEFRAME_KEY = 'lastChartTf';
 let nextInterval = getNextInterval();
 
 function setChartTimeframe(tf: string) {
   localStorage.setItem(CHART_TIMEFRAME_KEY, tf);
   updateChart();
+}
+
+function setLastChartTf(tf: string) {
+  localStorage.setItem(CHART_LAST_TIMEFRAME_KEY, tf);
 }
 
 if (localStorage.getItem(CHART_TIMEFRAME_KEY) == null) {
@@ -96,6 +101,7 @@ function makeChart(data: Array<DhtSensorData>) {
 export function Graph() {
   const [isLoading, setIsLoading] = useState(true);
   const [chartMade, setChartMade] = useState(false);
+  const [newTf, setNewTf] = useState<string | null>(localStorage.getItem(CHART_LAST_TIMEFRAME_KEY) as string)
 
   const fetchData = () => {
     fetchDhtData(localStorage.getItem(CHART_TIMEFRAME_KEY) as string).then((data) => {
@@ -114,29 +120,57 @@ export function Graph() {
 
   useRefresh(fetchData, minuteInMiliseconds * 60);
 
+  const handleTfSubmit = () => {
+    setChartTimeframe(newTf!);
+    setLastChartTf(newTf as string);
+  }
+
   return (
     <Container>
-      <input
-        type="button"
-        onClick={() => setChartTimeframe('14d')}
-        value="14 days"
-      />
-      <input
-        type="button"
-        onClick={() => setChartTimeframe('3d')}
-        value="3 days"
-      />
-      <input
-        type="button"
-        onClick={() => setChartTimeframe('24h')}
-        value="24 hours"
-      />
-      <input
-        type="button"
-        onClick={() => setChartTimeframe('12h')}
-        value="12 hours"
-      />
-      <br />
+      <Row>
+      <Col
+        xs={'auto'}>
+        <input
+          type="button"
+          onClick={() => setChartTimeframe('14d')}
+          value="14 days"
+        />
+        <input
+          type="button"
+          onClick={() => setChartTimeframe('3d')}
+          value="3 days"
+        />
+        <input
+          type="button"
+          onClick={() => setChartTimeframe('24h')}
+          value="24 hours"
+        />
+        <input
+          type="button"
+          onClick={() => setChartTimeframe('12h')}
+          value="12 hours"
+        />
+      </Col>
+      <Col>
+        <input
+          className={'w-25'}
+          type={'text'}
+          onChange={(e) => {
+            setNewTf(e.target.value)
+          }}
+          value={newTf as string}
+          style={{
+            minWidth: '100px'
+          }}
+        />
+        <input
+          type={'button'}
+          onClick={handleTfSubmit}
+          value={'Set'}
+        />
+      </Col>
+      </Row>
+      <br/>
       {isLoading ? <p>Loading...</p> : <></>}
       <canvas id="chart"></canvas>
     </Container>
