@@ -22,6 +22,10 @@ on:
       - 'manage.py'
       - 'requirements.txt'
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   django:
     runs-on: ubuntu-latest
