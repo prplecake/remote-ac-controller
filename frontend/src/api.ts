@@ -14,8 +14,12 @@ export async function fetchLatestSensorData() {
     });
 }
 
-export async function fetchHistoricalSensorData() {
-  return await fetch(BASE_API_URL + '/api/dht/historical_data').then(
+export async function fetchHistoricalSensorData(page?: number) {
+  let url = BASE_API_URL + '/api/dht/historical_data'
+  if (page && page > 0){
+    url = url + '?page=' + page
+  }
+  return await fetch(url).then(
     (response) => response.json()
   );
 }

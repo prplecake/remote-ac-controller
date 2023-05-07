@@ -3,22 +3,38 @@ import {fetchHistoricalSensorData} from '../api';
 import {convertToFahrenheit, formatDate} from './remote-ac';
 import {useRefresh} from '../hooks/useRefresh';
 import {DhtSensorData} from '../types/DhtSensorData';
+import {Button, Col, Row} from "reactstrap";
+
+interface HistoricalDataApiResponse {
+  count: number | null,
+  next: string | null,
+  previous: string | null,
+  results: Array<DhtSensorData> | null,
+}
 
 export function HistoricalSensorData() {
-  const [data, setData] = useState<Array<DhtSensorData> | null>(null);
+  const [data, setData] = useState<HistoricalDataApiResponse | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [page, setPage] = useState(1);
 
   const fetchData = () => {
-    fetchHistoricalSensorData().then((result) => setData(result));
+    fetchHistoricalSensorData(page).then((result) => {
+      setData(result);
+    });
   }
 
   useEffect(() => {
     if (data !== null) {
+      console.log(data);
       setIsLoading(false);
     } else {
       fetchData();
     }
   }, [data]);
+
+  useEffect(() => {
+    fetchData();
+  }, [page])
 
   useRefresh(fetchData);
 
@@ -26,14 +42,43 @@ export function HistoricalSensorData() {
     <>
       {isLoading ? (
         <p>Loading historical data...</p>
-      ) : (
-        data!.map((item, i) => (
-          <p key={i}>
-            {formatDate(new Date(item.date))} ::{' '}
-            {convertToFahrenheit(item.temp_c)}&deg;F ({item.temp_c}&deg;C)
-            H: {item.humidity}%
-          </p>
-        ))
+      ) : (<>
+          {data!.results!.map((item, i) => (
+            <p key={i}>
+              {formatDate(new Date(item.date))} ::{' '}
+              {convertToFahrenheit(item.temp_c)}&deg;F ({item.temp_c}&deg;C)
+              H: {item.humidity}%
+            </p>
+          ))}
+          <Row>
+            {/* Earlier/Next button */}
+            <Col>
+              {data?.next !== null ? (
+                <Button
+                  color='secondary'
+                  onClick={() => setPage(page + 1)}
+                  size={'sm'}
+                >
+                  <i className="bi bi-arrow-left"></i>&nbsp;
+                  Earlier data
+                </Button>
+              ) : null}
+            </Col>
+            {/* Later/Previous button */}
+            <Col>
+              {data?.previous !== null ? (
+                <Button
+                  color={'secondary'}
+                  onClick={() => setPage(page - 1)}
+                  size={'sm'}
+                >
+                  Later data
+                  &nbsp;<i className="bi bi-arrow-right"></i>
+                </Button>
+              ) : null}
+            </Col>
+          </Row>
+        </>
       )}
     </>
   );
