@@ -31,7 +31,7 @@ export function HistoricalSensorData() {
           <p key={i}>
             {formatDate(new Date(item.date))} ::{' '}
             {convertToFahrenheit(item.temp_c)}&deg;F ({item.temp_c}&deg;C)
-            Humidity: {item.humidity}%
+            H: {item.humidity}%
           </p>
         ))
       )}
