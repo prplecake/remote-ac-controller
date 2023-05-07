@@ -53,11 +53,11 @@ export function HistoricalSensorData() {
           <Row>
             {/* Earlier/Next button */}
             <Col>
-              {page < (Math.ceil(data?.count! / 20)) ? (
+              {page < (Math.ceil(data!.count! / 20)) ? (
                 <>
                 <Button
                   color={'secondary'}
-                  onClick={() => setPage(Math.ceil(data?.count! / 20))}
+                  onClick={() => setPage(Math.ceil(data!.count! / 20))}
                   size={'sm'}
                   >
                   <i className="bi bi-chevron-double-left"></i>
