@@ -25,7 +25,7 @@
     "style-loader": "^3.3.2",
     "ts-loader": "^9.4.2",
     "typescript": "^5.0.4",
-    "web-vitals": "^2.1.4",
+    "web-vitals": "^3.3.1",
     "webpack-bundle-tracker": "^1.8.1",
     "webpack-cli": "^5.0.2"
   },
