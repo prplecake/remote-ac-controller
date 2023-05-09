@@ -78,7 +78,7 @@ function makeChart(data: Array<DhtSensorData>) {
     options: {
       scales: {
         x: {
-          display: false,
+          display: true,
         },
         y: {
           type: 'linear',
