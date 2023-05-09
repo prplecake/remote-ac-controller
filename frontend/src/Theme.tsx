@@ -6,10 +6,10 @@ export const ThemeContext = React.createContext({
   dark: false
 });
 
-export default function ThemeProvider({ children }: any) {
-  // keeps state of the current theme
-  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+// keeps state of the current theme
+export const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
+export default function ThemeProvider({ children }: any) {
   const [dark, setDark] = useState(prefersDark);
 
   // paints the app before it renders elements

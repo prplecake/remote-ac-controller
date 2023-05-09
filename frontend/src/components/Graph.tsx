@@ -5,6 +5,7 @@ import {Chart, ChartItem} from 'chart.js/auto';
 import {Col, Container, Row} from 'reactstrap';
 import {useRefresh} from '../hooks/useRefresh';
 import {DhtSensorData} from '../types/DhtSensorData';
+import {prefersDark} from "../Theme";
 
 const CHART_TIMEFRAME_KEY = 'chartTimeframe';
 const CHART_LAST_TIMEFRAME_KEY = 'lastChartTf';
@@ -55,6 +56,7 @@ function updateChart() {
 let chart: Chart;
 
 function makeChart(data: Array<DhtSensorData>) {
+  const gridColor = prefersDark ? 'rgba(255, 255, 255, 0.2)' : 'rgba(0, 0, 0, 0.2)'
   if (chart) {
     chart.destroy();
   }
@@ -79,11 +81,17 @@ function makeChart(data: Array<DhtSensorData>) {
       scales: {
         x: {
           display: true,
+          grid: {
+            color: gridColor
+          }
         },
         y: {
           type: 'linear',
           display: true,
           position: 'left',
+          grid: {
+            color: gridColor
+          }
         },
         y1: {
           type: 'linear',
