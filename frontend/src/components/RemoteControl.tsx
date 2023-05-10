@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {get_ac_power_state, postIrCommand, toggle_ac_power_state} from '../api';
+import {get_ac_power_state, postIrCommand, toggle_ac_power_state} from '../api/remote-ac';
 import {Container} from 'reactstrap';
 
 export function RemoteControl() {

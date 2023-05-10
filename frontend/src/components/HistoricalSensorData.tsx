@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {fetchHistoricalSensorData} from '../api';
+import {fetchHistoricalSensorData} from '../api/remote-ac';
 import {convertToFahrenheit, formatDate} from './remote-ac';
 import {useRefresh} from '../hooks/useRefresh';
 import {DhtSensorData} from '../types/DhtSensorData';

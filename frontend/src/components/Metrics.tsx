@@ -7,7 +7,7 @@ import {
   fetchDhtHighTemp,
   fetchDhtLowHumidity,
   fetchDhtLowTemp,
-} from '../api';
+} from '../api/remote-ac';
 import {Col, Container, Row} from 'reactstrap';
 import {useRefresh} from '../hooks/useRefresh';
 

@@ -1,6 +1,6 @@
 import {convertToFahrenheit, formatDate, minuteInMiliseconds} from './remote-ac';
 import React, {useEffect, useState} from 'react';
-import {fetchDhtData} from '../api';
+import {fetchDhtData} from '../api/remote-ac';
 import {Chart, ChartItem} from 'chart.js/auto';
 import {Col, Container, Row} from 'reactstrap';
 import {useRefresh} from '../hooks/useRefresh';
