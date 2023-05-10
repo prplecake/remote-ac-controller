@@ -66,7 +66,7 @@ export async function fetchDhtLowTemp() {
   );
 }
 
-export async function toggle_ac_power_state() {
+export async function postToggleAcPowerState() {
   return await fetch('/api/app/state/ac_power/toggle', {
     method: 'POST',
   })
@@ -79,7 +79,7 @@ export async function toggle_ac_power_state() {
     })
 }
 
-export async function get_ac_power_state() {
+export async function fetchAcPowerState() {
   return await fetch('/api/app/state/ac_power')
     .then((response) => {
       if (!response.ok) {
