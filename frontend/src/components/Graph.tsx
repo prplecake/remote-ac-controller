@@ -80,7 +80,7 @@ function makeChart(data: Array<DhtSensorData>) {
     options: {
       scales: {
         x: {
-          display: true,
+          display: screen.width >= 500,
           grid: {
             color: gridColor
           }
