@@ -25,7 +25,6 @@ export function HistoricalSensorData() {
 
   useEffect(() => {
     if (data !== null) {
-      console.log(data);
       setIsLoading(false);
     } else {
       fetchData();
