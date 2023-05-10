@@ -91,6 +91,10 @@ function makeChart(data: Array<DhtSensorData>) {
           position: 'left',
           grid: {
             color: gridColor
+          },
+          title: {
+            display: true,
+            text: 'Temp. (F)',
           }
         },
         y1: {
@@ -99,6 +103,10 @@ function makeChart(data: Array<DhtSensorData>) {
           position: 'right',
           suggestedMax: 100,
           suggestedMin: 0,
+          title: {
+            display: true,
+            text: 'Humidity (%)'
+          }
         },
       },
       animation: false,
