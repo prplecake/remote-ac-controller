@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {fetchLatestSensorData} from '../api';
+import {fetchLatestSensorData} from '../api/remote-ac';
 import {convertToFahrenheit} from './remote-ac';
 import {Col, Row} from 'reactstrap';
 import {useRefresh} from '../hooks/useRefresh';
