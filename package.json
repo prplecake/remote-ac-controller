@@ -19,7 +19,7 @@
     "react-dom": "^18.2.0",
     "react-scripts": "^5.0.1",
     "react-strap": "^0.0.1",
-    "reactstrap": "^9.1.9",
+    "reactstrap": "^9.1.10",
     "sass": "^1.62.1",
     "sass-loader": "^13.2.2",
     "style-loader": "^3.3.2",
