@@ -58,5 +58,23 @@ class AcControlState:
 
     ac_unit_on = property(_get_ac_unit_on, _set_ac_unit_on)
 
+    def _get_weather_station(self):
+        return self.state.weather_station
+
+    def _set_weather_station(self, value):
+        self.state.weather_station = value
+        self.state.save()
+
+    weather_station = property(_get_weather_station, _set_weather_station)
+
+    def _get_wx_grid_points(self):
+        return self.state.wx_grid_points
+
+    def _set_wx_grid_points(self, value):
+        self.state.wx_grid_points = value
+        self.state.save()
+
+    wx_grid_points = property(_get_wx_grid_points, _set_wx_grid_points)
+
 
 state = AcControlState()
