@@ -109,3 +109,15 @@ export function postIrCommand(command: string) {
     }
   });
 }
+
+export async function fetchWeatherStation() {
+  return await fetch(BASE_API_URL + '/api/app/state/weather_station').then(
+    (response) => response.json()
+  );
+}
+
+export async function fetchWxGridPoints() {
+  return await fetch(BASE_API_URL + '/api/app/state/wx_grid_points').then(
+    (response) => response.json()
+  );
+}
