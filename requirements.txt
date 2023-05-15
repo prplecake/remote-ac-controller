@@ -1,9 +1,9 @@
 Adafruit-Blinka==8.19.0
 adafruit-circuitpython-busdevice==5.2.4
-adafruit-circuitpython-dht==3.7.8
+adafruit-circuitpython-dht==4.0.0
 adafruit-circuitpython-requests==1.13.2
 adafruit-circuitpython-typing==1.9.2
-Adafruit-PlatformDetect==3.45.1
+Adafruit-PlatformDetect==3.46.0
 Adafruit-PureIO==1.1.10
 amqp==5.1.1
 asgiref==3.6.0
@@ -17,9 +17,9 @@ click-plugins==1.1.1
 click-repl==0.2.0
 Django==4.2.1
 django-appconf==1.0.5
-django-celery-results==2.5.0
+django-celery-results==2.5.1
 django-compressor==4.3.1
-django-cors-headers==3.14.0
+django-cors-headers==4.0.0
 django-extensions==3.2.1
 django-webpack-loader==1.8.1
 djangorestframework==3.14.0
