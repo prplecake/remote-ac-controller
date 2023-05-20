@@ -114,6 +114,8 @@ function makeChart(data: Array<DhtSensorData>, timeframe: string = localStorage.
         },
       },
       animation: false,
+      responsive: true,
+      maintainAspectRatio: false,
       plugins: {
         title: {
           display: chartDisplayTitle,
@@ -198,7 +200,9 @@ export function Graph() {
       </Row>
       <br/>
       {isLoading ? <p>Loading...</p> : <></>}
-      <canvas id="chart"></canvas>
+      <div className={'chart-container'}>
+        <canvas id="chart"></canvas>
+      </div>
     </Container>
   );
 }

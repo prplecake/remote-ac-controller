@@ -51,6 +51,10 @@ body {
   color: unset;
 }
 
+.chart-container {
+  height: 350px;
+}
+
 @media (prefers-color-scheme: dark) {
   body {
     background-color: black;
@@ -89,5 +93,9 @@ body {
 
   .footer {
     min-height: 20px;
+  }
+
+  .chart-container {
+    height: 200px;
   }
 }
