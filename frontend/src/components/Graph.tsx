@@ -48,15 +48,19 @@ function getNextInterval() {
 setInterval(updateChart, nextInterval);
 
 function updateChart() {
-  fetchDhtData(localStorage.getItem(CHART_TIMEFRAME_KEY) as string)
-    .then(data => makeChart(data));
+  const timeframe: string = localStorage.getItem(CHART_TIMEFRAME_KEY) as string;
+  fetchDhtData(timeframe)
+    .then(data => makeChart(data, timeframe));
   nextInterval = getNextInterval();
 }
 
 let chart: Chart;
 
-function makeChart(data: Array<DhtSensorData>) {
+function makeChart(data: Array<DhtSensorData>, timeframe: string = localStorage.getItem(CHART_TIMEFRAME_KEY) as string) {
   const gridColor = prefersDark ? 'rgba(255, 255, 255, 0.2)' : 'rgba(0, 0, 0, 0.2)'
+  const chartTitleText: string = 'Previous ' + timeframe;
+  let chartDisplayTitle = true;
+  if (timeframe === '') { chartDisplayTitle = false }
   if (chart) {
     chart.destroy();
   }
@@ -110,6 +114,12 @@ function makeChart(data: Array<DhtSensorData>) {
         },
       },
       animation: false,
+      plugins: {
+        title: {
+          display: chartDisplayTitle,
+          text: chartTitleText
+        }
+      }
     },
   });
 }
