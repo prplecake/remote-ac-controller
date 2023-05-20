@@ -5,7 +5,7 @@ import {Chart, ChartItem} from 'chart.js/auto';
 import {Col, Container, Row} from 'reactstrap';
 import {useRefresh} from '../hooks/useRefresh';
 import {DhtSensorData} from '../types/DhtSensorData';
-import {prefersDark} from "../Theme";
+import {prefersDark} from '../Theme';
 
 const CHART_TIMEFRAME_KEY = 'chartTimeframe';
 const CHART_LAST_TIMEFRAME_KEY = 'lastChartTf';
