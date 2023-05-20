@@ -48,7 +48,7 @@ function getNextInterval() {
 setInterval(updateChart, nextInterval);
 
 function updateChart() {
-  let timeframe: string = localStorage.getItem(CHART_TIMEFRAME_KEY) as string;
+  const timeframe: string = localStorage.getItem(CHART_TIMEFRAME_KEY) as string;
   fetchDhtData(timeframe)
     .then(data => makeChart(data, timeframe));
   nextInterval = getNextInterval();
@@ -59,7 +59,7 @@ let chart: Chart;
 function makeChart(data: Array<DhtSensorData>, timeframe: string = localStorage.getItem(CHART_TIMEFRAME_KEY) as string) {
   const gridColor = prefersDark ? 'rgba(255, 255, 255, 0.2)' : 'rgba(0, 0, 0, 0.2)'
   const chartTitleText: string = 'Previous ' + timeframe;
-  let chartDisplayTitle: boolean = true;
+  let chartDisplayTitle = true;
   if (timeframe === '') { chartDisplayTitle = false }
   if (chart) {
     chart.destroy();
