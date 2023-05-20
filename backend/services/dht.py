@@ -25,6 +25,9 @@ def dht_initialize():
     except NameError:
         logger.warning("Could not initialize DHT11 sensor")
         pass
+    except AttributeError:
+        logger.warning("Could not initialize DHT11 sensor")
+        pass
 
 
 def get_dht_data() -> (float, float, str):
