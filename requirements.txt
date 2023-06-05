@@ -6,7 +6,7 @@ adafruit-circuitpython-typing==1.9.2
 Adafruit-PlatformDetect==3.46.0
 Adafruit-PureIO==1.1.11
 amqp==5.1.1
-asgiref==3.6.0
+asgiref==3.7.2
 async-timeout==4.0.2
 bandit==1.7.5
 billiard==4.1.0
