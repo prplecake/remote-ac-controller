@@ -2,7 +2,7 @@ Adafruit-Blinka==8.19.0
 adafruit-circuitpython-busdevice==5.2.6
 adafruit-circuitpython-dht==4.0.2
 adafruit-circuitpython-requests==1.14.0
-adafruit-circuitpython-typing==1.9.2
+adafruit-circuitpython-typing==1.9.4
 Adafruit-PlatformDetect==3.46.0
 Adafruit-PureIO==1.1.11
 amqp==5.1.1
