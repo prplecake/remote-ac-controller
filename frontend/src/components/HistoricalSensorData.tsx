@@ -1,9 +1,9 @@
-import React, {useEffect, useState} from 'react';
-import {fetchHistoricalSensorData} from '../api/remote-ac';
-import {convertToFahrenheit, formatDate} from './remote-ac';
-import {useRefresh} from '../hooks/useRefresh';
-import {DhtSensorData} from '../types/DhtSensorData';
-import {Button, Col, Row} from 'reactstrap';
+import React, {useEffect, useState} from "react";
+import {fetchHistoricalSensorData} from "../api/remote-ac";
+import {convertToFahrenheit, formatDate} from "./remote-ac";
+import {useRefresh} from "../hooks/useRefresh";
+import {DhtSensorData} from "../types/DhtSensorData";
+import {Button, Col, Row} from "reactstrap";
 
 interface HistoricalDataApiResponse {
   count: number | null,
@@ -44,7 +44,7 @@ export function HistoricalSensorData() {
       ) : (<>
           {data!.results!.map((item, i) => (
             <p key={i}>
-              {formatDate(new Date(item.date))} ::{' '}
+              {formatDate(new Date(item.date))} ::{" "}
               {convertToFahrenheit(item.temp_c)}&deg;F ({item.temp_c}&deg;C)
               H: {item.humidity}%
             </p>
@@ -55,9 +55,9 @@ export function HistoricalSensorData() {
               {page < (Math.ceil(data!.count! / 20)) ? (
                 <>
                 <Button
-                  color={'secondary'}
+                  color={"secondary"}
                   onClick={() => setPage(Math.ceil(data!.count! / 20))}
-                  size={'sm'}
+                  size={"sm"}
                   >
                   <i className="bi bi-chevron-double-left"></i>
                 </Button>&nbsp;
@@ -67,7 +67,7 @@ export function HistoricalSensorData() {
                 <Button
                   color='secondary'
                   onClick={() => setPage(page + 1)}
-                  size={'sm'}
+                  size={"sm"}
                 >
                   <i className="bi bi-chevron-left"></i>
                 </Button>
@@ -77,9 +77,9 @@ export function HistoricalSensorData() {
             <Col>
               {data?.previous !== null ? (
                 <Button
-                  color={'secondary'}
+                  color={"secondary"}
                   onClick={() => setPage(page - 1)}
-                  size={'sm'}
+                  size={"sm"}
                 >
                   <i className="bi bi-chevron-right"></i>
                 </Button>
@@ -87,9 +87,9 @@ export function HistoricalSensorData() {
               {page > 2 ? (
                <>
                &nbsp;<Button
-                  color={'secondary'}
+                  color={"secondary"}
                   onClick={() => setPage(1)}
-                  size={'sm'}
+                  size={"sm"}
                   >
                   <i className="bi bi-chevron-double-right"></i>
                 </Button>
