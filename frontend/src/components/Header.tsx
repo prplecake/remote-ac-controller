@@ -1,6 +1,6 @@
-import React from 'react';
-import {Container} from 'reactstrap';
-import {LatestSensorData} from './LatestSensorData';
+import React from "react";
+import {Container} from "reactstrap";
+import {LatestSensorData} from "./LatestSensorData";
 
 export function Header() {
   return (

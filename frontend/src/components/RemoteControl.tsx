@@ -1,6 +1,6 @@
-import React, {useEffect, useState} from 'react';
-import {fetchAcPowerState, postIrCommand, postToggleAcPowerState} from '../api/remote-ac';
-import {Container} from 'reactstrap';
+import React, {useEffect, useState} from "react";
+import {fetchAcPowerState, postIrCommand, postToggleAcPowerState} from "../api/remote-ac";
+import {Container} from "reactstrap";
 
 export function RemoteControl() {
   const [acPowerState, setAcPowerState] = useState<boolean>(false)
@@ -17,37 +17,37 @@ export function RemoteControl() {
   }
 
   function btn_power() {
-    postIrCommand('KEY_POWER');
+    postIrCommand("KEY_POWER");
     // assume it was successfuly, I don't think we're getting any info back from lircd
     setAcPowerState(!acPowerState);
   }
 
   function btn_temp_up() {
-    postIrCommand('TEMP_TIMER_UP');
+    postIrCommand("TEMP_TIMER_UP");
   }
 
   function btn_temp_dwn() {
-    postIrCommand('TEMP_TIMER_DWN');
+    postIrCommand("TEMP_TIMER_DWN");
   }
 
   function btn_fan_speed_inc() {
-    postIrCommand('FAN_SPEED_INC');
+    postIrCommand("FAN_SPEED_INC");
   }
 
   function btn_fan_speed_dec() {
-    postIrCommand('FAN_SPEED_DEC');
+    postIrCommand("FAN_SPEED_DEC");
   }
 
   function btn_mode_cool() {
-    postIrCommand('MODE_COOL');
+    postIrCommand("MODE_COOL");
   }
 
   function btn_mode_fan_only() {
-    postIrCommand('MODE_FAN_ONLY');
+    postIrCommand("MODE_FAN_ONLY");
   }
 
   function btn_mode_auto_fan() {
-    postIrCommand('MODE_AUTO_FAN');
+    postIrCommand("MODE_AUTO_FAN");
   }
 
   //#endregion buttons
@@ -56,7 +56,7 @@ export function RemoteControl() {
     <Container>
       <button onClick={btn_power} type="button">
         <i className="bi bi-circle-fill"
-           style={acPowerState ? {color: 'green'} : {color: 'red'} }
+           style={acPowerState ? {color: "green"} : {color: "red"} }
         ></i> Power
       </button>
       <input type="button" onClick={btn_temp_up} value="Temp +"/>

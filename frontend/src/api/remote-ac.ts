@@ -1,7 +1,7 @@
-const BASE_API_URL = '';
+const BASE_API_URL = "";
 
 export async function fetchLatestSensorData() {
-  return await fetch(BASE_API_URL + '/api/dht/get_current')
+  return await fetch(BASE_API_URL + "/api/dht/get_current")
     .then((response) => {
       return response.json();
     })
@@ -15,9 +15,9 @@ export async function fetchLatestSensorData() {
 }
 
 export async function fetchHistoricalSensorData(page?: number) {
-  let url = BASE_API_URL + '/api/dht/historical_data'
+  let url = BASE_API_URL + "/api/dht/historical_data"
   if (page && page > 0){
-    url = url + '?page=' + page
+    url = url + "?page=" + page
   }
   return await fetch(url).then(
     (response) => response.json()
@@ -25,54 +25,54 @@ export async function fetchHistoricalSensorData(page?: number) {
 }
 
 export async function fetchDhtData(limit: string) {
-  return await fetch(BASE_API_URL + '/api/dht/graph_data?limit=' + limit).then(
+  return await fetch(BASE_API_URL + "/api/dht/graph_data?limit=" + limit).then(
     (response) => response.json()
   );
 }
 
 export async function fetchDhtAvgHumidity() {
-  return await fetch(BASE_API_URL + '/api/dht/metrics/humidity_avg').then(
+  return await fetch(BASE_API_URL + "/api/dht/metrics/humidity_avg").then(
     (response) => response.json()
   );
 }
 
 export async function fetchDhtHighHumidity() {
-  return await fetch(BASE_API_URL + '/api/dht/metrics/humidity_high').then(
+  return await fetch(BASE_API_URL + "/api/dht/metrics/humidity_high").then(
     (response) => response.json()
   );
 }
 
 export async function fetchDhtLowHumidity() {
-  return await fetch(BASE_API_URL + '/api/dht/metrics/humidity_low').then(
+  return await fetch(BASE_API_URL + "/api/dht/metrics/humidity_low").then(
     (response) => response.json()
   );
 }
 
 export async function fetchDhtAvgTemp() {
-  return await fetch(BASE_API_URL + '/api/dht/metrics/temp_avg').then(
+  return await fetch(BASE_API_URL + "/api/dht/metrics/temp_avg").then(
     (response) => response.json()
   );
 }
 
 export async function fetchDhtHighTemp() {
-  return await fetch(BASE_API_URL + '/api/dht/metrics/temp_high').then(
+  return await fetch(BASE_API_URL + "/api/dht/metrics/temp_high").then(
     (response) => response.json()
   );
 }
 
 export async function fetchDhtLowTemp() {
-  return await fetch(BASE_API_URL + '/api/dht/metrics/temp_low').then(
+  return await fetch(BASE_API_URL + "/api/dht/metrics/temp_low").then(
     (response) => response.json()
   );
 }
 
 export async function postToggleAcPowerState() {
-  return await fetch('/api/app/state/ac_power/toggle', {
-    method: 'POST',
+  return await fetch("/api/app/state/ac_power/toggle", {
+    method: "POST",
   })
     .then(function (res) {
       if (!res.ok) {
-        console.warn('Request failed.');
+        console.warn("Request failed.");
         console.warn(res.json());
       }
       return res.json();
@@ -80,10 +80,10 @@ export async function postToggleAcPowerState() {
 }
 
 export async function fetchAcPowerState() {
-  return await fetch('/api/app/state/ac_power')
+  return await fetch("/api/app/state/ac_power")
     .then((response) => {
       if (!response.ok) {
-        console.warn('Request failed');
+        console.warn("Request failed");
         console.debug(response.json());
       }
       return response.json();
@@ -91,20 +91,20 @@ export async function fetchAcPowerState() {
 }
 
 export function postIrCommand(command: string) {
-  fetch('/api/ir_blaster/send_once', {
-    method: 'POST',
+  fetch("/api/ir_blaster/send_once", {
+    method: "POST",
     body: JSON.stringify({
       command: command,
     }),
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
     },
   }).then(function (res) {
     if (res.ok) {
       console.log(res);
       console.log(res.json());
     } else {
-      console.log('Request failed.');
+      console.log("Request failed.");
       console.log(res.json());
     }
   });

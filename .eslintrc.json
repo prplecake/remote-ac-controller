@@ -16,7 +16,7 @@
   },
   "plugins": ["react", "react-hooks"],
   "rules": {
-    "quotes": ["warn", "single"],
+    "quotes": ["warn", "double"],
     "@typescript-eslint/no-non-null-assertion": "off"
 
   },

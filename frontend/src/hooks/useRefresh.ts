@@ -1,5 +1,5 @@
-import {minuteInMiliseconds} from '../components/remote-ac';
-import {useEffect} from 'react';
+import {minuteInMiliseconds} from "../components/remote-ac";
+import {useEffect} from "react";
 
 const DEFAULT_REFRESH_INTERVAL =  minuteInMiliseconds * 5;
 
