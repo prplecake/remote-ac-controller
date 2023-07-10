@@ -42,7 +42,7 @@ pytz==2023.3
 pyusb==1.2.1
 PyYAML==6.0
 rcssmin==1.1.1
-redis==4.5.5
+redis==4.6.0
 rich==13.3.5
 rjsmin==1.2.1
 six==1.16.0
