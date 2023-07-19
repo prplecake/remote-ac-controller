@@ -56,7 +56,6 @@ INSTALLED_APPS = [
     'frontend',
     'backend.ac_ctl',
     'backend.api',
-    'backend.services',
 ]
 
 MIDDLEWARE = [
