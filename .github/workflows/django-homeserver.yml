@@ -1,35 +1,43 @@
-name: Django CI
+name: Django CI (Homeserver)
 
 on:
   push:
     branches: [master]
     paths:
-      - '.github/workflows/django.yml'
-      - 'ac_ctl_web/**'
-      - 'backend/**'
-      - 'services/**'
-      - 'utilities/**'
-      - 'manage.py'
-      - 'requirements.txt'
+      - '.github/workflows/django-homeserver.yml'
+      - 'homeserver/ac_ctl_web/**'
+      - 'homeserver/backend/**'
+      - 'homeserver/services/**'
+      - 'homeserver/utilities/**'
+      - 'homeserver/manage.py'
+      - 'homeserver/Pipfile'
+      - 'homeserver/Pipfile.lock'
   pull_request:
     branches: [master]
     paths:
-      - '.github/workflows/django.yml'
-      - 'ac_ctl_web/**'
-      - 'backend/**'
-      - 'services/**'
-      - 'utilities/**'
-      - 'manage.py'
-      - 'requirements.txt'
+      - '.github/workflows/django-homeserver.yml'
+      - 'homeserver/ac_ctl_web/**'
+      - 'homeserver/backend/**'
+      - 'homeserver/services/**'
+      - 'homeserver/utilities/**'
+      - 'homeserver/manage.py'
+      - 'homeserver/Pipfile'
+      - 'homeserver/Pipfile.lock'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
+env:
+  work-dir: ./homeserver
+
+defaults:
+  run:
+    working-directory: ./homeserver
+
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v3
       - name: Set up Python 3.11
@@ -39,16 +47,8 @@ jobs:
           cache: 'pipenv'
       - name: Install Pipenv
         run: python -m pip install --upgrade pipenv wheel
-      - id: cache-pipenv
-        uses: actions/cache@v1
-        with:
-          path: ~/.local/share/virtualenvs
-          key: ${{ runner.os }}-pipenv-${{ hashFiles('**/Pipfile.lock') }}
-      - name: Install dependencies
-        if: steps.cache-pipenv.outputs.cache-hit != 'true'
-        run: |
-          pipenv install --deploy --dev
-      - name: Setup envrionment
+      - run: pipenv install --deploy --dev
+      - name: Setup environment
         run: |
           echo "$DJANGO_ENV" >> ac_ctl_web/env.py
         env:

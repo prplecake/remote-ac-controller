@@ -1,25 +1,33 @@
-name: Linters
+name: Linters (Homeserver)
 
 on:
   push:
     paths-ignore:
       - '.**'
       - '!.github/workflows/linters.yml'
-      - '!.flake8'
-      - '!.eslintrc.json'
-      - '!.stylelintrc.json'
-      - '!.prettierrc.json'
-      - '!.prettierignore'
+      - '!homeserver/.flake8'
+      - '!homeserver/.eslintrc.json'
+      - '!homeserver/.stylelintrc.json'
+      - '!homeserver/.prettierrc.json'
+      - '!homeserver/.prettierignore'
       - 'README.md'
       - 'dist/**'
       - 'docs/**'
-      - 'yarn.lock'
-      - 'package.json'
-      - 'requirements.txt'
+      - 'homeserver/yarn.lock'
+      - 'homeserver/package.json'
+      - 'homeserver/Pipfile'
+      - 'homeserver/Pipfile.lock'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
+
+env:
+  work-dir: ./homeserver
+
+defaults:
+  run:
+    working-directory: ./homeserver
 
 jobs:
   flake8:
@@ -27,112 +35,68 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Set up Python ${{ matrix.python-version }}
+      - name: Set up Python 3.11
         uses: actions/setup-python@v4
         with:
           python-version: 3.11
           cache: 'pipenv'
       - name: Install Pipenv
         run: python -m pip install --upgrade pipenv wheel
-      - id: cache-pipenv
-        uses: actions/cache@v1
-        with:
-          path: ~/.local/share/virtualenvs
-          key: ${{ runner.os }}-pipenv-${{ hashFiles('**/Pipfile.lock') }}
-
-      - name: Install dependencies
-        if: steps.cache-pipenv.outputs.cache-hit != 'true'
-        run: |
-          pipenv install --deploy --dev
+      - run: pipenv install --deploy --dev
       - name: Analysing the code with flake8
         if: always()
-        run: |
-          pipenv run flake8
+        run: pipenv run flake8
 
   eslint:
     name: ESLint (JavaScript)
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Detect package manager
-        id: detect-package-manager
-        run: |
-          if [ -f "${{ github.workspace }}/yarn.lock" ]; then
-            echo "manager=yarn" >> $GITHUB_OUTPUT
-            echo "command=install" >> $GITHUB_OUTPUT
-            echo "runner=yarn" >> $GITHUB_OUTPUT
-            exit 0
-          elif [ -f "${{ github.workspace }}/package.json" ]; then
-            echo "manager=npm" >> $GITHUB_OUTPUT
-            echo "command=ci" >> $GITHUB_OUTPUT
-            echo "runner=npx --no-install" >> $GITHUB_OUTPUT
-            exit 0
-          else
-            echo "Unable to determine package manager"
-            exit 1
-          fi
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
           node-version: "16"
-          cache: ${{ steps.detect-package-manager.outputs.manager }}
+          cache: "yarn"
+          cache-dependency-path: ./homeserver/yarn.lock
       - name: Restore cache
         uses: actions/cache@v3
         with:
           path: |
             .next/cache
           # Generate a new cache whenever packages or source files change.
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
+          key: ${{ runner.os }}-node-${{ hashFiles(format('{0}/{1}', env.work-dir, '**/package-lock.json'), format('{0}/{1}', env.work-dir, '**/yarn.lock')) }}-${{ hashFiles(format('{0}/{1}', env.work-dir, '**.[jt]s'), format('{0}/{1}', env.work-dir, '**.[jt]sx')) }}
           # If source files changed but packages didn't, rebuild from a prior cache.
           restore-keys: |
-            ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
+            ${{ runner.os }}-node-${{ hashFiles(format('{0}/{1}', env.work-dir, '**/package-lock.json'), format('{0}/{1}', env.work-dir, '**/yarn.lock')) }}-
       - name: Install dependencies
-        run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
+        run: yarn install
       - name: Analysing the code with eslint
         if: always()
-        run: |
-          ${{ steps.detect-package-manager.outputs.manager }} test:lint:js
+        run: yarn test:lint:js
 
   stylelint:
     name: Stylelint (CSS)
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Detect package manager
-        id: detect-package-manager
-        run: |
-          if [ -f "${{ github.workspace }}/yarn.lock" ]; then
-            echo "manager=yarn" >> $GITHUB_OUTPUT
-            echo "command=install" >> $GITHUB_OUTPUT
-            echo "runner=yarn" >> $GITHUB_OUTPUT
-            exit 0
-          elif [ -f "${{ github.workspace }}/package.json" ]; then
-            echo "manager=npm" >> $GITHUB_OUTPUT
-            echo "command=ci" >> $GITHUB_OUTPUT
-            echo "runner=npx --no-install" >> $GITHUB_OUTPUT
-            exit 0
-          else
-            echo "Unable to determine package manager"
-            exit 1
-          fi
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
           node-version: "16"
-          cache: ${{ steps.detect-package-manager.outputs.manager }}
+          cache: "yarn"
+          cache-dependency-path: ./homeserver/yarn.lock
       - name: Restore cache
         uses: actions/cache@v3
         with:
           path: |
             .next/cache
           # Generate a new cache whenever packages or source files change.
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
+          key: ${{ runner.os }}-node-${{ hashFiles(format('{0}/{1}', env.work-dir,  '**/package-lock.json'), format('{0}/{1}', env.work-dir, '**/yarn.lock')) }}-${{ hashFiles(format('{0}/{1}', env.work-dir,  '**.[jt]s'), format('{0}/{1}', env.work-dir, '**.[jt]sx')) }}
           # If source files changed but packages didn't, rebuild from a prior cache.
           restore-keys: |
-            ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
+            ${{ runner.os }}-node-${{ hashFiles(format('{0}/{1}', env.work-dir, '**/package-lock.json'), format('{0}/{1}', env.work-dir, '**/yarn.lock')) }}-
       - name: Install dependencies
-        run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
+        run: yarn install
       - name: Analysing the code with eslint
         if: always()
-        run: |
-          ${{ steps.detect-package-manager.outputs.manager }} test:lint:sass
+        run: yarn test:lint:sass
