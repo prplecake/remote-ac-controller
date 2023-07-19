@@ -1,8 +1,8 @@
-import React, {useEffect, useState} from 'react';
-import {fetchLatestNWSObservation} from '../api/nws-api';
-import {NWSObservation} from '../types/NWSObservation';
-import {useRefresh} from '../hooks/useRefresh';
-import {convertToFahrenheit, minuteInMiliseconds} from './remote-ac';
+import React, {useEffect, useState} from "react";
+import {fetchLatestNWSObservation} from "../api/nws-api";
+import {NWSObservation} from "../types/NWSObservation";
+import {useRefresh} from "../hooks/useRefresh";
+import {convertToFahrenheit, minuteInMiliseconds} from "./remote-ac";
 
 export function LatestNWSObservation(props: { wxGridPoints: string, weatherStation: string }) {
   const [latestObservation, setLatestObservation] = useState<NWSObservation | null>(null);
@@ -17,7 +17,7 @@ export function LatestNWSObservation(props: { wxGridPoints: string, weatherStati
   }
 
   const fetchData = () => {
-    if (props.weatherStation !== '') {
+    if (props.weatherStation !== "") {
       fetchLatestNWSObservation(props.weatherStation).then(
         (response) => processNWSObservation(response)
       );
