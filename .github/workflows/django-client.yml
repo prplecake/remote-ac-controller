@@ -1,0 +1,54 @@
+name: Django CI (Client)
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - '.github/workflows/django-client.yml'
+      - 'client/ac_ctl_web/**'
+      - 'client/backend/**'
+      - 'client/services/**'
+      - 'client/utilities/**'
+      - 'client/manage.py'
+      - 'client/Pipfile'
+      - 'client/Pipfile.lock'
+  pull_request:
+    branches: [master]
+    paths:
+      - '.github/workflows/django-client.yml'
+      - 'client/ac_ctl_web/**'
+      - 'client/backend/**'
+      - 'client/services/**'
+      - 'client/utilities/**'
+      - 'client/manage.py'
+      - 'client/Pipfile'
+      - 'client/Pipfile.lock'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  work-dir: ./client
+
+defaults:
+  run:
+    working-directory: ./client
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python 3.9
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.9
+          cache: 'pipenv'
+      - name: Install Pipenv
+        run: python -m pip install --upgrade pipenv wheel
+      - run: pipenv install --deploy --dev
+      - name: Run Tests
+        run: |
+          pipenv run python -m unittest
+          
