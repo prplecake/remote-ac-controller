@@ -20,20 +20,18 @@ export function Header() {
   return (
     <Container fluid>
       <header className='header'>
-        <Row>
+        <Row xs={1} md={2}>
           <Col>
         <p>remote-ac-controller</p>
           </Col>
-          <Col>
+          <Col xs={9}>
             <LatestNWSObservation
               weatherStation={weatherStation}
               wxGridPoints={wxGridPoints}
             />
           </Col>
-          <Col>
-            <LatestSensorData/>
-          </Col>
         </Row>
+        <LatestSensorData/>
       </header>
     </Container>
   );

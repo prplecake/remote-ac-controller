@@ -29,16 +29,9 @@ export function LatestSensorData() {
         <p>Loading...</p>
       ) : (
         <div id='current-temp'>
-          <Row>
-            <Col>
-              Temp:
-            </Col>
-            <Col>{convertToFahrenheit(data!.temp_c)}&deg;F ({data!.temp_c}&deg;C)</Col>
-          </Row>
-          <Row>
-            <Col>Humidity:</Col>
-            <Col>{data!.humidity}%</Col>
-          </Row>
+          Local Observations<br/>
+          Temp: {convertToFahrenheit(data!.temp_c)}&deg;F ({data!.temp_c}&deg;C)<br/>
+          Humidity: {data!.humidity}%<br/>
         </div>
       )}
     </>
