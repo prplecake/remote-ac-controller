@@ -1,12 +1,12 @@
-import React, {useEffect, useState} from 'react';
-import {Col, Container, Row} from 'reactstrap';
-import {LatestSensorData} from './LatestSensorData';
-import {fetchWeatherStation, fetchWxGridPoints} from '../api/remote-ac';
-import {LatestNWSObservation} from './LatestNWSObservation';
+import React, {useEffect, useState} from "react";
+import {Col, Container, Row} from "reactstrap";
+import {LatestSensorData} from "./LatestSensorData";
+import {fetchWeatherStation, fetchWxGridPoints} from "../api/remote-ac";
+import {LatestNWSObservation} from "./LatestNWSObservation";
 
 export function Header() {
-  const [weatherStation, setWeatherStation] = useState<string>('');
-  const [wxGridPoints, setWxGridPoints] = useState<string>('');
+  const [weatherStation, setWeatherStation] = useState<string>("");
+  const [wxGridPoints, setWxGridPoints] = useState<string>("");
 
   useEffect(() => {
     fetchWeatherStation().then(

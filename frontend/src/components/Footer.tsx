@@ -1,7 +1,7 @@
 /*eslint-disable no-undef */
 
-import React from 'react';
-import {Container} from 'reactstrap';
+import React from "react";
+import {Container} from "reactstrap";
 
 declare const REPO_URL: string | undefined;
 declare const COMMIT_HASH: string | undefined;
@@ -10,7 +10,7 @@ declare const COMMIT_BRANCH: string | undefined;
 function Version() {
   return (
     <div id="version-info">
-      <a href={REPO_URL + '/commit/' + COMMIT_HASH}
+      <a href={REPO_URL + "/commit/" + COMMIT_HASH}
          target='_blank'
          rel='noreferrer'
       >{COMMIT_HASH}</a>-{COMMIT_BRANCH}

@@ -1,9 +1,9 @@
-import React, {useEffect, useState} from 'react';
-import {fetchLatestSensorData} from '../api/remote-ac';
-import {convertToFahrenheit} from './remote-ac';
-import {Col, Row} from 'reactstrap';
-import {useRefresh} from '../hooks/useRefresh';
-import {DhtSensorData} from '../types/DhtSensorData';
+import React, {useEffect, useState} from "react";
+import {fetchLatestSensorData} from "../api/remote-ac";
+import {convertToFahrenheit} from "./remote-ac";
+import {Col, Row} from "reactstrap";
+import {useRefresh} from "../hooks/useRefresh";
+import {DhtSensorData} from "../types/DhtSensorData";
 
 export function LatestSensorData() {
   const [data, setData] = useState<DhtSensorData | null>(null);
