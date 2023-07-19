@@ -6,7 +6,6 @@ name = "pypi"
 [packages]
 django = "==4.2.3"
 djangorestframework = "==3.14.0"
-celery = "*"
 django-cors-headers = "*"
 django-extensions = "*"
 django-webpack-loader = "*"
