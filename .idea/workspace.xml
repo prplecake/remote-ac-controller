@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="497ab631-70a3-480f-a878-40bf884c3cd8" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="HTML File" />
+        <option value="JavaScript File" />
+        <option value="Python Script" />
+        <option value="TypeScript JSX File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="PREVIEW_PUSH_PROTECTED_ONLY" value="true" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$/../remote-ac-controller.wiki" value="automation" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
+    <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="recentNewPullRequestHead">
+      <RepoCoordinatesHolder>
+        <option name="owner" value="prplecake" />
+        <option name="repository" value="remote-ac-controller" />
+      </RepoCoordinatesHolder>
+    </option>
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="afdfb748-8538-47d1-ba89-4e0d969cb250" />
+        <option name="url" value="git@github.com:prplecake/remote-ac-controller" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectId" id="2KFaVTwhRbwULcw9KWNHquGrzDq" />
+  <component name="ProjectLevelVcsManager">
+    <OptionsSetting value="false" id="Update" />
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="autoscrollToSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "true",
+    "WebServerToolWindowPanel.toolwindow.highlight.mappings": "true",
+    "WebServerToolWindowPanel.toolwindow.highlight.symlinks": "true",
+    "WebServerToolWindowPanel.toolwindow.show.date": "false",
+    "WebServerToolWindowPanel.toolwindow.show.permissions": "false",
+    "WebServerToolWindowPanel.toolwindow.show.size": "false",
+    "git-widget-placeholder": "refactor-project",
+    "javascript.nodejs.core.library.configured.version": "16.20.0",
+    "javascript.nodejs.core.library.typings.version": "16.18.38",
+    "last_opened_file_path": "/Users/prplecake/Projects/e/remote-ac-controller/frontend/src",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs.jest.jest_package": "/Users/prplecake/Projects/e/remote-ac-controller/node_modules/react-scripts",
+    "nodejs_interpreter_path": "node",
+    "nodejs_package_manager_path": "yarn",
+    "prettierjs.PrettierConfiguration.Package": "/Users/prplecake/Projects/e/remote-ac-controller/node_modules/prettier",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
+    "ts.external.directory.path": "/Users/prplecake/Projects/e/remote-ac-controller/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "sqlite"
+    ],
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "SQLite"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/frontend/src" />
+      <recent name="$PROJECT_DIR$/remote_api" />
+      <recent name="$PROJECT_DIR$/ac_ctl" />
+      <recent name="$PROJECT_DIR$/remote_api/dht" />
+      <recent name="$PROJECT_DIR$/.github/workflows" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/frontend/src/api" />
+      <recent name="$PROJECT_DIR$/backend" />
+      <recent name="$PROJECT_DIR$/backend/ac_ctl" />
+      <recent name="$PROJECT_DIR$/frontend" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="es6.move.members.recent.items">
+      <recent name="$PROJECT_DIR$/frontend/src/types/NWSObservation.tsx" />
+      <recent name="$PROJECT_DIR$/frontend/src/components/LatestNWSObservation.tsx" />
+      <recent name="$PROJECT_DIR$/frontend/src/components/Header.js" />
+      <recent name="$PROJECT_DIR$/frontend/src/components/Footer.js" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.test:lint:sass">
+    <configuration name="remote-ac-controller" type="Python.DjangoServer" factoryName="Django server">
+      <module name="remote-ac-controller" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="ac_ctl_web.settings" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="0.0.0.0" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test:lint:fix-js" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="test:lint:fix-js" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="test:lint:js" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="test:lint:js" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="test:lint:sass" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="test:lint:sass" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Django Server.remote-ac-controller" />
+      <item itemvalue="npm.test:lint:js" />
+      <item itemvalue="npm.test:lint:sass" />
+      <item itemvalue="npm.test:lint:fix-js" />
+      <item itemvalue="Shell Script.honcho start" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.test:lint:sass" />
+        <item itemvalue="npm.test:lint:js" />
+        <item itemvalue="npm.test:lint:fix-js" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="497ab631-70a3-480f-a878-40bf884c3cd8" name="Changes" comment="" />
+      <created>1673572809662</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1673572809662</updated>
+      <workItem from="1673572814127" duration="306000" />
+      <workItem from="1673573374069" duration="329000" />
+      <workItem from="1673573901617" duration="8769000" />
+      <workItem from="1673626503701" duration="4838000" />
+      <workItem from="1673672294120" duration="8304000" />
+      <workItem from="1673807337432" duration="4052000" />
+      <workItem from="1673826403952" duration="2317000" />
+      <workItem from="1674055172752" duration="2566000" />
+      <workItem from="1674269516489" duration="272000" />
+      <workItem from="1674269896608" duration="737000" />
+      <workItem from="1674313172093" duration="311000" />
+      <workItem from="1674574571857" duration="236000" />
+      <workItem from="1674863282663" duration="4693000" />
+      <workItem from="1675376614300" duration="52000" />
+      <workItem from="1675376674442" duration="77000" />
+      <workItem from="1675376762938" duration="7970000" />
+      <workItem from="1675889121893" duration="626000" />
+      <workItem from="1675895539215" duration="5085000" />
+      <workItem from="1675903576690" duration="1724000" />
+      <workItem from="1676795018328" duration="8613000" />
+      <workItem from="1676803984064" duration="3937000" />
+      <workItem from="1677105224909" duration="2217000" />
+      <workItem from="1677108377346" duration="3019000" />
+      <workItem from="1677113942935" duration="1095000" />
+      <workItem from="1677782933485" duration="22000" />
+      <workItem from="1678046853455" duration="421000" />
+      <workItem from="1679273401256" duration="63000" />
+      <workItem from="1679857145770" duration="1000" />
+      <workItem from="1680074650366" duration="207000" />
+      <workItem from="1680074945740" duration="1270000" />
+      <workItem from="1680295936825" duration="4132000" />
+      <workItem from="1680324471265" duration="627000" />
+      <workItem from="1680325243486" duration="633000" />
+      <workItem from="1680562427079" duration="1234000" />
+      <workItem from="1681163193736" duration="3156000" />
+      <workItem from="1681759240197" duration="2923000" />
+      <workItem from="1681909579024" duration="3320000" />
+      <workItem from="1682024163604" duration="139000" />
+      <workItem from="1682291869003" duration="2030000" />
+      <workItem from="1682881226632" duration="4646000" />
+      <workItem from="1683039020036" duration="7521000" />
+      <workItem from="1683049791072" duration="66000" />
+      <workItem from="1683136011438" duration="23730000" />
+      <workItem from="1683162739354" duration="6473000" />
+      <workItem from="1683213179499" duration="4371000" />
+      <workItem from="1683226486537" duration="547000" />
+      <workItem from="1683230911745" duration="1632000" />
+      <workItem from="1683232561433" duration="21632000" />
+      <workItem from="1683311163112" duration="783000" />
+      <workItem from="1683312123723" duration="24968000" />
+      <workItem from="1683391265126" duration="1197000" />
+      <workItem from="1683417886296" duration="5607000" />
+      <workItem from="1683454339058" duration="333000" />
+      <workItem from="1683469031768" duration="6878000" />
+      <workItem from="1683477745253" duration="773000" />
+      <workItem from="1683479465700" duration="2190000" />
+      <workItem from="1683679000931" duration="1875000" />
+      <workItem from="1684097530030" duration="6291000" />
+      <workItem from="1684549593318" duration="1713000" />
+      <workItem from="1684554461956" duration="1478000" />
+      <workItem from="1684724972762" duration="57000" />
+      <workItem from="1688602714630" duration="540000" />
+      <workItem from="1688953616910" duration="183000" />
+      <workItem from="1688953805732" duration="1744000" />
+      <workItem from="1689437717491" duration="143000" />
+      <workItem from="1689794724617" duration="872000" />
+      <workItem from="1689795611214" duration="2878000" />
+      <workItem from="1689800358237" duration="10000" />
+      <workItem from="1689800391114" duration="5000" />
+      <workItem from="1689800407314" duration="3583000" />
+    </task>
+    <task id="LOCAL-00001" summary="Update graph query">
+      <created>1674313333873</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1674313333873</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Fix graph data list splice">
+      <created>1674574690954</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1674574690954</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Format date in historical data">
+      <created>1676797432959</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1676797432959</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Format datetime in chart">
+      <created>1676797508082</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1676797508082</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Save last used chart timeframe">
+      <created>1676798359645</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1676798359645</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Update Python inspections">
+      <created>1676799988447</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1676799988447</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Disable proofreading inspection">
+      <created>1676800055971</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1676800055971</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Disable inspection for tag">
+      <created>1676800124465</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1676800124465</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Add typescript dependency">
+      <created>1676802520774</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1676802520774</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Fix flake8 errors">
+      <created>1680562608888</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1680562608888</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Add lirc instructions to wiki">
+      <created>1681912495841</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1681912495841</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Fix typo in README">
+      <created>1681912995678</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1681912995678</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Update formatting">
+      <created>1681913144960</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1681913144960</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Update automation schedule">
+      <created>1683213280312</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1683213280312</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+        <option value="Space.CommitStatus" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="Update graph query" />
+    <MESSAGE value="Fix graph data list splice" />
+    <MESSAGE value="Format date in historical data" />
+    <MESSAGE value="Format datetime in chart" />
+    <MESSAGE value="Save last used chart timeframe" />
+    <MESSAGE value="Update Python inspections" />
+    <MESSAGE value="Disable proofreading inspection" />
+    <MESSAGE value="Disable inspection for tag" />
+    <MESSAGE value="Add typescript dependency" />
+    <MESSAGE value="Fix flake8 errors" />
+    <MESSAGE value="Add lirc instructions to wiki" />
+    <MESSAGE value="Fix typo in README" />
+    <MESSAGE value="Update formatting" />
+    <MESSAGE value="Update automation schedule" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update automation schedule" />
+  </component>
+</project>
