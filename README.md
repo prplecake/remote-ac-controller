@@ -9,11 +9,13 @@ https://user-images.githubusercontent.com/83595468/212430312-2f6c45ab-76fd-4837-
 ## quickstart
 
 This project comes in multiple parts: a [central homeserver][homeserver] that
-can support multiple [clients][client]. A new [Web UI] and [esp32 sensor] are in
+can support multiple clients. A new [Web UI] and [esp32 sensor] are in
 the works.
 
+The old Raspberry Pi client [can be found here][rpi-client].
+
 [homeserver]:https://github.com/prplecake/remote-ac-homeserver
-[client]:https://github.com/prplecake/remote-ac-client
+[rpi-client]:https://github.com/prplecake/remote-ac-client
 [Web UI]:http://github.com/prplecake/remote-ac-webui
 [esp32 sensor]:https://github.com/prplecake/remote-ac-controller-esp32
 
