@@ -4,8 +4,7 @@ The goal of this project is to create a device that can automate my
 IR-controllable AC units, either using a DHT sensor or over the internet while
 I'm away.
 
-<video controls>
-  <source src="https://user-images.githubusercontent.com/83595468/212430312-2f6c45ab-76fd-4837-91fb-a6bcf532ea33.mp4" type="video/mp4">
+<video controls src="https://user-images.githubusercontent.com/83595468/212430312-2f6c45ab-76fd-4837-91fb-a6bcf532ea33.mp4" type="video/mp4">
 </video>
 
 ## quickstart
